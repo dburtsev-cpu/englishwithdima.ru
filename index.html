@@ -1,109 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English with Dima | Tutoring for Tech & Business Professionals</title>
-    <!-- We will link the CSS file here -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Optional: Add a nice font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-</head>
+<style>
+    :root {
+        --primary-dark: #2c3e50;
+        --accent-gold: #d4af37; /* A touch of "expensive" gold */
+        --bg-warm: #f9f7f2; /* Warm paper color */
+    }
+
+    body {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        background-color: var(--bg-warm);
+        color: #444;
+    }
+
+    /* The "Atmosphere" Header */
+    .hero-bg {
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                    url('images/atmosphere.jpg'); /* Your bookshelf or coffee photo */
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+    }
+
+    .profile-img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 4px solid white;
+        margin-bottom: 15px;
+        object-fit: cover;
+    }
+
+    .container {
+        max-width: 700px;
+        margin: -50px auto 50px auto; /* Pulls the content up over the hero */
+        padding: 0 20px;
+    }
+
+    .glass-card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        line-height: 1.8;
+    }
+
+    h1 { font-size: 2.2em; margin: 10px 0; letter-spacing: -1px; }
+    
+    .accent-text {
+        color: var(--accent-gold);
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        letter-spacing: 2px;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .feature-img {
+        width: 100%;
+        border-radius: 10px;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .cta-button {
+        display: block;
+        background: var(--primary-dark);
+        color: white;
+        text-align: center;
+        padding: 20px;
+        border-radius: 12px;
+        text-decoration: none;
+        margin-top: 30px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .cta-button:hover { background: #34495e; transform: translateY(-2px); }
+</style>
+
 <body>
 
-    <!-- 1. Header & Navigation -->
-    <header>
-        <div class="container">
-            <h1 class="logo">English<span class="highlight">WithDima</span></h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="hero-bg">
+        <img src="images/dima-profile.jpg" class="profile-img">
+        <div class="accent-text">English Speaking Partner</div>
+        <h1>Dmitriy</h1>
+    </div>
 
-    <!-- 2. Hero Section (The Main Intro) -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h2>Unlock Your Potential with Personalized English Tutoring</h2>
-                <p>Specializing in Business English and Communication for Tech Professionals (Python/Data Science/IT).</p>
-                <a href="#contact" class="btn">Book a Trial Lesson</a>
-            </div>
-            <div class="hero-image">
-                <!-- IMPORTANT: Make sure this image exists in your 'images' folder -->
-                <img src="images/dima-profile.jpg" alt="Dima, English Tutor">
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-grid">
-                <div class="card">
-                    <h3>Experienced</h3>
-                    <p>Over 5 years of experience helping professionals master conversational English and technical terminology.</p>
-                </div>
-                <div class="card">
-                    <h3>Tech Focused</h3>
-                    <p>Background in Python and Data Science allows me to understand the unique language needs of IT specialists.</p>
-                </div>
-                <div class="card">
-                    <h3>Tailored Approach</h3>
-                    <p>Every lesson is built around your specific goals, from interview prep to presenting complex data.</p>
+    <div class="container">
+        <div class="glass-card">
+            <p><strong>Привет! Я Дима.</strong></p>
+            <p>Я не предлагаю скучные уроки с учебниками. Я предлагаю живое общение. Если вам нужно преодолеть языковой барьер, начать <em>чувствовать</em> язык и просто говорить — вы по адресу.</p>
+            
+            <div class="feature-grid">
+                <img src="images/coffee.jpg" class="feature-img" alt="Atmosphere">
+                <div>
+                    <p><strong>Формат:</strong><br>
+                    Никакого стресса. Мы просто созваниваемся и общаемся на интересные вам темы. Я фиксирую ошибки и помогаю расширить ваш словарный запас "на лету".</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 4. Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Services & Rates</h2>
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <h4>Trial Lesson (30 min)</h4>
-                    <p class="price">Free</p>
-                    <p>Assess your level, discuss your goals, and see if my teaching style is right for you.</p>
-                </div>
-                <div class="price-card popular">
-                    <h4>1-on-1 Lesson (60 min)</h4>
-                    <p class="price">$XX / Hour</p>
-                    <p>Flexible scheduling focused on business communication, grammar, and pronunciation.</p>
-                </div>
-                <div class="price-card">
-                    <h4>Python/Data Terminology</h4>
-                    <p class="price">$XX / Hour</p>
-                    <p>Specialized vocabulary and communication for IT professionals and developers.</p>
-                </div>
-            </div>
+            <a href="https://t.me/TrumanBoom" class="cta-button">Обсудить первый созвон в Telegram</a>
         </div>
-    </section>
-
-    <!-- 5. Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Ready to Start?</h2>
-            <p>Contact me to book your free trial lesson. I respond quickly via Telegram.</p>
-            <div class="contact-links">
-                <!-- Replace with your actual username/link -->
-                <a href="https://t.me/your_telegram_username" class="btn btn-telegram" target="_blank">Message me on Telegram</a>
-                <a href="mailto:dima@englishwithdima.ru" class="email-link">dima@englishwithdima.ru</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 EnglishWithDima. All rights reserved.</p>
-        </div>
-    </footer>
+    </div>
 
 </body>
-</html>
