@@ -1,8 +1,8 @@
 <style>
     :root {
         --primary-dark: #2c3e50;
-        --accent-gold: #d4af37;
-        --bg-warm: #f9f7f2;
+        --accent-gold: #d4af37; /* A touch of "expensive" gold */
+        --bg-warm: #f9f7f2; /* Warm paper color */
     }
 
     body {
@@ -10,23 +10,21 @@
         margin: 0;
         background-color: var(--bg-warm);
         color: #444;
-        /* This ensures text is readable on mobile */
-        -webkit-text-size-adjust: 100%; 
     }
 
+    /* The "Atmosphere" Header */
     .hero-bg {
         background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                    url('images/atmosphere.jpg');
+                    url('images/atmosphere.jpg'); /* Your bookshelf or coffee photo */
         background-size: cover;
         background-position: center;
-        height: 350px;
+        height: 400px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         color: white;
         text-align: center;
-        padding: 20px;
     }
 
     .profile-img {
@@ -40,36 +38,16 @@
 
     .container {
         max-width: 700px;
-        margin: -40px auto 50px auto;
-        padding: 0 15px;
+        margin: -50px auto 50px auto; /* Pulls the content up over the hero */
+        padding: 0 20px;
     }
 
     .glass-card {
         background: white;
-        padding: 30px;
+        padding: 40px;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        line-height: 1.6;
-    }
-
-    /* --- MOBILE SCALING (The "Big" Fix) --- */
-    @media (max-width: 600px) {
-        h1 {
-            font-size: 2.8em !important; /* Making the name huge */
-        }
-        .accent-text {
-            font-size: 1.2em !important; /* Making the subtitle clear */
-        }
-        .glass-card p {
-            font-size: 1.4em; /* Boosting paragraph text size */
-        }
-        .feature-grid {
-            grid-template-columns: 1fr; /* Stack image and text vertically */
-        }
-        .cta-button {
-            font-size: 1.5em; /* Make the button impossible to miss */
-            padding: 25px;
-        }
+        line-height: 1.8;
     }
 
     h1 { font-size: 2.2em; margin: 10px 0; letter-spacing: -1px; }
@@ -92,7 +70,7 @@
     .feature-img {
         width: 100%;
         border-radius: 10px;
-        height: 200px;
+        height: 150px;
         object-fit: cover;
     }
 
@@ -108,6 +86,8 @@
         font-weight: bold;
         transition: 0.3s;
     }
+
+    .cta-button:hover { background: #34495e; transform: translateY(-2px); }
 </style>
 
 <body>
