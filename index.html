@@ -1,138 +1,189 @@
-<style>
-    :root {
-        --primary-dark: #2c3e50;
-        --accent-gold: #d4af37;
-        --bg-warm: #f9f7f2;
-    }
-
-    body {
-        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        margin: 0;
-        background-color: var(--bg-warm);
-        color: #444;
-        /* This ensures text is readable on mobile */
-        -webkit-text-size-adjust: 100%; 
-    }
-
-    .hero-bg {
-        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                    url('images/atmosphere.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 350px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .profile-img {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        border: 4px solid white;
-        margin-bottom: 15px;
-        object-fit: cover;
-    }
-
-    .container {
-        max-width: 700px;
-        margin: -40px auto 50px auto;
-        padding: 0 15px;
-    }
-
-    .glass-card {
-        background: white;
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        line-height: 1.6;
-    }
-
-    /* --- MOBILE SCALING (The "Big" Fix) --- */
-    @media (max-width: 600px) {
-        h1 {
-            font-size: 2.8em !important; /* Making the name huge */
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English with Dima</title>
+    <style>
+        :root {
+            --primary-dark: #2c3e50;
+            --accent-gold: #d4af37;
+            --bg-warm: #f9f7f2;
+            --white: #ffffff;
         }
-        .accent-text {
-            font-size: 1.2em !important; /* Making the subtitle clear */
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            color: #444;
+            line-height: 1.6;
         }
-        .glass-card p {
-            font-size: 1.4em; /* Boosting paragraph text size */
+
+        /* --- SECTION 1: HERO (Warm/Image Background) --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('images/atmosphere.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            display: flex;
+            justify-content: center;
         }
-        .feature-grid {
-            grid-template-columns: 1fr; /* Stack image and text vertically */
+
+        .hero-container {
+            max-width: 1000px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
+
+        .hero-text { flex: 2; }
+        .hero-img-wrapper { flex: 1; text-align: center; }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 6px solid rgba(255,255,255,0.2);
+            object-fit: cover;
+        }
+
+        /* --- SECTION 2: FORMAT (White Background) --- */
+        .section-white {
+            background: var(--white);
+            padding: 60px 20px;
+        }
+
+        .split-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .coffee-img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* --- SECTION 3: CARDS (Warm Background) --- */
+        .section-warm {
+            background: var(--bg-warm);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .card-grid {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- UI COMPONENTS --- */
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        h2 { font-size: 2.2rem; color: var(--primary-dark); }
+        .accent { color: var(--accent-gold); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        
         .cta-button {
-            font-size: 1.5em; /* Make the button impossible to miss */
-            padding: 25px;
+            display: inline-block;
+            background: var(--primary-dark);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
         }
-    }
 
-    h1 { font-size: 2.2em; margin: 10px 0; letter-spacing: -1px; }
-    
-    .accent-text {
-        color: var(--accent-gold);
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 0.8em;
-        letter-spacing: 2px;
-    }
+        .cta-button:hover { background: #34495e; transform: scale(1.05); }
 
-    .feature-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-top: 30px;
-    }
-
-    .feature-img {
-        width: 100%;
-        border-radius: 10px;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .cta-button {
-        display: block;
-        background: var(--primary-dark);
-        color: white;
-        text-align: center;
-        padding: 20px;
-        border-radius: 12px;
-        text-decoration: none;
-        margin-top: 30px;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-</style>
-
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 800px) {
+            .hero-container, .split-grid { 
+                flex-direction: column-reverse; 
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-img-wrapper { margin-bottom: 20px; }
+            .profile-img { width: 180px; height: 180px; }
+            h1 { font-size: 2.5rem; }
+            .section-white p { font-size: 1.3rem; } /* Making mobile text bigger */
+        }
+    </style>
+</head>
 <body>
 
-    <div class="hero-bg">
-        <img src="images/dima-profile.jpg" class="profile-img">
-        <div class="accent-text">English Speaking Partner</div>
-        <h1>Dmitriy</h1>
-    </div>
-
-    <div class="container">
-        <div class="glass-card">
-            <p><strong>Привет! Я Дима.</strong></p>
-            <p>Я не предлагаю скучные уроки с учебниками. Я предлагаю живое общение. Если вам нужно преодолеть языковой барьер, начать <em>чувствовать</em> язык и просто говорить — вы по адресу.</p>
-            
-            <div class="feature-grid">
-                <img src="images/coffee.jpg" class="feature-img" alt="Atmosphere">
-                <div>
-                    <p><strong>Формат:</strong><br>
-                    Никакого стресса. Мы просто созваниваемся и общаемся на интересные вам темы. Я фиксирую ошибки и помогаю расширить ваш словарный запас "на лету".</p>
-                </div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="accent">English Speaking Partner</div>
+                <h1>Привет! Я Дима.</h1>
+                <p style="font-size: 1.4rem;">Я не предлагаю скучные уроки с учебниками. Я предлагаю живое общение. Если вам нужно преодолеть языковой барьер, начать <em>чувствовать</em> язык и просто говорить — вы по адресу.</p>
+                <a href="#contact" class="cta-button">Начать обучение</a>
             </div>
-
-            <a href="https://t.me/TrumanBoom" class="cta-button">Обсудить первый созвон в Telegram</a>
+            <div class="hero-img-wrapper">
+                <img src="images/dima-profile.jpg" class="profile-img" alt="Dmitriy">
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- FORMAT SECTION -->
+    <section class="section-white">
+        <div class="split-grid">
+            <img src="images/coffee.jpg" class="coffee-img" alt="Work Atmosphere">
+            <div>
+                <h2>Формат обучения</h2>
+                <p style="font-size: 1.2rem;"><strong>Никакого стресса.</strong> Мы просто созваниваемся и общаемся на интересные вам темы. Я фиксирую ошибки и помогаю расширить ваш словарный запас "на лету".</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / CARDS SECTION -->
+    <section class="section-warm">
+        <h2>Почему со мной?</h2>
+        <div class="card-grid">
+            <div class="info-card">
+                <div class="accent" style="margin-bottom:15px;">Experienced</div>
+                <p>Over 5 years of experience helping professionals master conversational English and technical terminology.</p>
+            </div>
+            <div class="info-card">
+                <div class="accent" style="margin-bottom:15px;">Tech Focused</div>
+                <p>Background in Python and Data Science allows me to understand the unique language needs of IT specialists.</p>
+            </div>
+            <div class="info-card">
+                <div class="accent" style="margin-bottom:15px;">Tailored Approach</div>
+                <p>Every lesson is built around your specific goals, from interview prep to presenting complex data.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="section-white" id="contact" style="text-align: center; background: var(--bg-warm);">
+        <h2>Ready to Start?</h2>
+        <p>Contact me to book your first call. I respond quickly via Telegram.</p>
+        <a href="https://t.me/TrumanBoom" class="cta-button" style="background: #0088cc;">Message me on Telegram</a>
+    </section>
 
 </body>
+</html>
