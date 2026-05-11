@@ -19,7 +19,7 @@
             line-height: 1.6;
         }
 
-        /* --- SECTION 1: HERO (Warm/Image Background) --- */
+        /* --- SECTION 1: HERO --- */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
                         url('images/atmosphere.jpg');
@@ -49,7 +49,7 @@
             object-fit: cover;
         }
 
-        /* --- SECTION 2: FORMAT (White Background) --- */
+        /* --- SECTION 2: FORMAT --- */
         .section-white {
             background: var(--white);
             padding: 60px 20px;
@@ -70,7 +70,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* --- SECTION 3: CARDS (Warm Background) --- */
+        /* --- SECTION 3: CARDS --- */
         .section-warm {
             background: var(--bg-warm);
             padding: 80px 20px;
@@ -87,10 +87,23 @@
 
         .info-card {
             background: white;
-            padding: 30px;
+            padding: 35px 25px;
             border-radius: 15px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: default;
+        }
+
+        /* FONT SETTINGS FOR CARDS */
+        .info-card p {
+            font-size: 1.15rem; /* Makes card text slightly larger */
+            font-weight: 400;   /* Clean, modern weight */
+            color: #555;        /* Softer grey for readability */
+            margin-top: 15px;
+        }
+
+        .info-card .accent {
+            font-size: 1.25rem; /* Makes the card titles pop */
+            letter-spacing: 1.5px;
         }
 
         .info-card:hover {
@@ -127,7 +140,8 @@
             .hero-img-wrapper { margin-bottom: 20px; }
             .profile-img { width: 180px; height: 180px; }
             h1 { font-size: 2.5rem; }
-            .section-white p { font-size: 1.3rem; } /* Making mobile text bigger */
+            .hero-text p, .section-white p { font-size: 1.3rem !important; } 
+            .info-card p { font-size: 1.2rem !important; }
         }
     </style>
 </head>
@@ -139,7 +153,7 @@
             <div class="hero-text">
                 <div class="accent">English Speaking Partner</div>
                 <h1>Привет! Я Дима.</h1>
-                <p style="font-size: 1.4rem;">Я не предлагаю скучные уроки с учебниками. Я предлагаю живое общение. Если вам нужно преодолеть языковой барьер, начать <em>чувствовать</em> язык и просто говорить — вы по адресу.</p>
+                <p style="font-size: 1.5rem;">Я не предлагаю скучные уроки с учебниками. Я предлагаю живое общение. Если вам нужно преодолеть языковой барьер, начать <em>чувствовать</em> язык и просто говорить — вы по адресу.</p>
                 <a href="#contact" class="cta-button">Начать обучение</a>
             </div>
             <div class="hero-img-wrapper">
@@ -154,7 +168,7 @@
             <img src="images/coffee.jpg" class="coffee-img" alt="Work Atmosphere">
             <div>
                 <h2>Формат обучения</h2>
-                <p style="font-size: 1.2rem;"><strong>Никакого стресса.</strong> Мы просто созваниваемся и общаемся на интересные вам темы. Я фиксирую ошибки и помогаю расширить ваш словарный запас "на лету".</p>
+                <p style="font-size: 1.5rem;"><strong>Никакого стресса.</strong> Мы просто созваниваемся и общаемся на интересные вам темы. Я фиксирую ошибки и помогаю расширить ваш словарный запас "на лету".</p>
             </div>
         </div>
     </section>
@@ -164,16 +178,16 @@
         <h2>Почему со мной?</h2>
         <div class="card-grid">
             <div class="info-card">
-                <div class="accent" style="margin-bottom:15px;">Experienced</div>
-                <p>Over 5 years of experience helping professionals master conversational English and technical terminology.</p>
+                <div class="accent">7 Лет в Китае</div>
+                <p>Опыт преподавания английского за рубежом. Я знаю, как объяснить язык тем, для кого он не является родным.</p>
             </div>
             <div class="info-card">
-                <div class="accent" style="margin-bottom:15px;">Tech Focused</div>
-                <p>Background in Python and Data Science allows me to understand the unique language needs of IT specialists.</p>
+                <div class="accent">Западное Образование</div>
+                <p>Диплом американского университета в Голландии (Hanze University). Обучение полностью на английском языке.</p>
             </div>
             <div class="info-card">
-                <div class="accent" style="margin-bottom:15px;">Tailored Approach</div>
-                <p>Every lesson is built around your specific goals, from interview prep to presenting complex data.</p>
+                <div class="accent">Живой Английский</div>
+                <p>Жил в США и работал в международной среде. Учу не книжным фразам, а реальному общению.</p>
             </div>
         </div>
     </section>
