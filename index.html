@@ -107,10 +107,17 @@
 
         .coffee-img {
             width: 100%;
+            height: 90%; /* Forces the image to match the text column height */
+            object-fit: cover; /* Prevents distortion by cropping the edges perfectly */
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-
+        
+        .section-title-centered {
+            text-align: center;
+            margin-bottom: 40px; /* Adds space between the title and the image/text block */
+        }
+        
         /* --- SECTION 3: CARDS (Why Me) --- */
         .section-warm {
             background: var(--bg-warm);
@@ -247,13 +254,14 @@
 
     <!-- SECTION 2: FORMAT -->
     <section class="section-white">
+        <!-- Move the heading here, right above the grid -->
+        <h2 class="section-title-centered">Формат обучения</h2>
+        
         <div class="split-grid">
             <img src="images/coffee.jpg" class="coffee-img" alt="Atmosphere">
             <div>
-                <h2>Формат обучения</h2>
-                <p style="font-size: var(--size-hero-text);"><strong>Никакого стресса.</strong> Мы просто созваниваемся
-                    и общаемся на интересные вам темы. Я фиксирую ошибки и помогаю расширить ваш словарный запас "на
-                    лету".</p>
+                <!-- Heading is gone from here -->
+                <p style="font-size: var(--size-hero-text);"><strong>Никакого стресса.</strong> Мы просто созваниваемся и общаемся на интересные вам темы. Это больше похоже на встречу друзей: в уютной атмосфере, как за чашечкой кофе, вы делитесь мыслями, рассказываете о своем дне и просто разгружаете голову. В процессе такого живого разговора я помогаю расширять словарный запас и разобраться с грамматикой на лету — так что ваш языковой барьер и неуверенность исчезают сами собой, а уровень будет расти с каждой встречей.</p>
             </div>
         </div>
     </section>
