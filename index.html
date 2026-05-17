@@ -33,6 +33,7 @@
             margin: 0;
             color: #444;
             line-height: 1.6;
+            overflow-x: hidden; /* Prevents unwanted sideways scrolling */
         }
 
         /* --- SECTION 1: HERO --- */
@@ -52,6 +53,7 @@
             display: flex;
             align-items: center;
             gap: 50px;
+            width: 100%;
         }
 
         .hero-text {
@@ -107,17 +109,17 @@
 
         .coffee-img {
             width: 100%;
-            height: 90%; /* Forces the image to match the text column height */
-            object-fit: cover; /* Prevents distortion by cropping the edges perfectly */
+            height: 90%;
+            object-fit: cover;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
+
         .section-title-centered {
             text-align: center;
-            margin-bottom: 40px; /* Adds space between the title and the image/text block */
+            margin-bottom: 40px;
         }
-        
+
         /* --- SECTION 3: CARDS (Why Me) --- */
         .section-warm {
             background: var(--bg-warm);
@@ -152,6 +154,159 @@
             font-weight: bold;
             text-transform: uppercase;
         }
+
+        /* --- NEW SECTION 3.5: GALLERY INTERACTIVE CAROUSEL --- */
+        .gallery-section {
+            background: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            max-width: 950px;
+            height: 400px;
+            margin: 40px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px; /* Gives the 3D depth feeling */
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: 450px;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Text label overlay inside each picture */
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            color: white;
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: left;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* 3D states applied dynamically by JavaScript */
+        .carousel-item.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate3d(0, 0, 100px) scale(1);
+            z-index: 5;
+        }
+
+        .carousel-item.active .carousel-caption {
+            opacity: 1;
+        }
+
+        .carousel-item.prev {
+            opacity: 0.65;
+            pointer-events: auto;
+            transform: translate3d(-220px, 0, 0) scale(0.8) rotateY(15deg);
+            z-index: 3;
+        }
+
+        .carousel-item.next {
+            opacity: 0.65;
+            pointer-events: auto;
+            transform: translate3d(220px, 0, 0) scale(0.8) rotateY(-15deg);
+            z-index: 3;
+        }
+
+        /* Full screen Zoom overlay state */
+        .carousel-item.zoomed {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.4) !important;
+            width: 550px;
+            height: 380px;
+            z-index: 999;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+            cursor: zoom-out;
+        }
+
+        /* Dim background layer when image zooms */
+        .gallery-overlay-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-overlay-bg.show {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Navigation Arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--primary-dark);
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .nav-arrow:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            box-shadow: 0 0 15px rgba(212,175,55,0.4);
+        }
+
+        .arrow-left { left: 10px; }
+        .arrow-right { right: 10px; }
 
         /* --- SECTION 4: CONTACTS --- */
         .contact-list {
@@ -224,6 +379,24 @@
                 --size-hero-title: 2.8rem;
                 --size-hero-text: 1.3rem;
             }
+
+            .carousel-wrapper {
+                height: 300px;
+            }
+            .carousel-item {
+                width: 280px;
+                height: 190px;
+            }
+            .carousel-item.prev {
+                transform: translate3d(-100px, 0, 0) scale(0.7);
+            }
+            .carousel-item.next {
+                transform: translate3d(100px, 0, 0) scale(0.7);
+            }
+            .carousel-item.zoomed {
+                width: 90%;
+                height: 240px;
+            }
         }
 
         input:focus,
@@ -231,6 +404,55 @@
             outline: none;
             border-color: var(--accent-gold);
             box-shadow: 0 0 5px rgba(235, 23, 76, 0.3);
+        }
+
+        /* --- VOICE PREVIEW COMPONENT --- */
+        .voice-preview-container {
+            margin-top: 25px;
+        }
+
+        .voice-button {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .voice-button:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .voice-button:active {
+            transform: translateY(0);
+        }
+
+        /* Text transcript styling */
+        .voice-transcript {
+            max-width: 500px;
+            margin-top: 15px;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 15px;
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -245,7 +467,21 @@
                 <h1>Привет! Я Дима.</h1>
                 <p>Я не предлагаю скучные уроки с учебниками. Я предлагаю живое общение. Если вам нужно преодолеть
                     языковой барьер, начать <em>чувствовать</em> язык и просто говорить — вы по адресу.</p>
+                
+                <!-- Voice Preview Section with Hidden Subtitles -->
+                <div class="voice-preview-container">
+                    <button id="voiceBtn" class="voice-button" onclick="toggleAudio()">
+                        <span id="voiceIcon">▶</span> Послушать мой голос
+                    </button>
+                    
+                    <div id="voiceTranscript" class="voice-transcript">
+                        "Hi there! I’m Dima. If you want to practice your English without stressful grammar drills or boring textbooks, you’re in the right place. My goal is to help you break the language barrier through real, relaxed conversations—just like two friends catching up over coffee. Mistakes are totally fine; I'm here to help you find the right words on the fly. Let's start talking!"
+                    </div>
+
+                    <audio id="myVoice" src="audio/dima-voice.mp3"></audio>
+                </div>
             </div>
+
             <div class="hero-img-wrapper">
                 <img src="images/dima-profile.jpg" class="profile-img" alt="Dmitriy">
             </div>
@@ -254,14 +490,14 @@
 
     <!-- SECTION 2: FORMAT -->
     <section class="section-white">
-        <!-- Move the heading here, right above the grid -->
         <h2 class="section-title-centered">Формат обучения</h2>
-        
+
         <div class="split-grid">
             <img src="images/coffee.jpg" class="coffee-img" alt="Atmosphere">
             <div>
-                <!-- Heading is gone from here -->
-                <p style="font-size: var(--size-hero-text);"><strong>Никакого стресса.</strong> Мы просто созваниваемся и общаемся на интересные вам темы. Это больше похоже на встречу друзей: в уютной атмосфере, как за чашечкой кофе, вы делитесь мыслями, рассказываете о своем дне и просто разгружаете голову. В процессе такого живого разговора я помогаю расширять словарный запас и разобраться с грамматикой на лету — так что ваш языковой барьер и неуверенность исчезают сами собой, а уровень будет расти с каждой встречей.</p>
+                <p style="font-size: var(--size-hero-text);">
+                    <strong>Никакого стресса.</strong> Мы просто созваниваемся и общаемся на интересные вам темы. Это больше похоже на встречу друзей: в уютной атмосфере, как за чашечкой кофе, вы делитесь мыслями, рассказываете о своем дне и просто разгружаете голову. В процессе такого живого разговора я помогаю расширять словарный запас и разобраться с грамматикой на лету — так что ваш языковой барьер и неуверенность исчезают сами собой, а уровень будет расти с каждой встречей.
+                </p>
             </div>
         </div>
     </section>
@@ -272,13 +508,11 @@
         <div class="card-grid">
             <div class="info-card">
                 <div class="card-accent">7 Лет в Китае</div>
-                <p>Опыт преподавания английского за рубежом. Я знаю, как объяснить язык тем, для кого он не является
-                    родным.</p>
+                <p>Опыт преподавания английского за рубежом. Я знаю, как объяснить язык тем, для кого он не является родным.</p>
             </div>
             <div class="info-card">
                 <div class="card-accent">Западное Образование</div>
-                <p>Диплом американского университета в Голландии (Hanze University). Обучение полностью на английском
-                    языке.</p>
+                <p>Диплом американского университета в Голландии (Hanze University). Обучение полностью на английском языке.</p>
             </div>
             <div class="info-card">
                 <div class="card-accent">Живой Английский</div>
@@ -287,24 +521,54 @@
         </div>
     </section>
 
+    <!-- NEW SECTION 3.5: LIFE & TRAVELS CAROUSEL -->
+    <section class="gallery-section">
+        <h2>Немного о моей жизни и путешествиях</h2>
+        <p style="max-width: 600px; margin: 0 auto; color: #666;">Практика языка — это погружение в опыт. Вот несколько моментов из моих поездок и работы за границей.</p>
+        
+        <div class="carousel-wrapper">
+            <div class="nav-arrow arrow-left" onclick="moveCarousel(-1)">‹</div>
+            
+            <div class="carousel-container">
+                <!-- Photo 1 -->
+                <div class="carousel-item" onclick="handleItemClick(0)">
+                    <img src="images/gallery1.jpg" alt="Teaching">
+                    <div class="carousel-caption">Преподавание английского языка в Китае</div>
+                </div>
+                <!-- Photo 2 -->
+                <div class="carousel-item" onclick="handleItemClick(1)">
+                    <img src="images/gallery2.jpg" alt="USA Travel">
+                    <div class="carousel-caption">Путешествия и жизнь в Соединенных Штатах</div>
+                </div>
+                <!-- Photo 3 -->
+                <div class="carousel-item" onclick="handleItemClick(2)">
+                    <img src="images/gallery3.jpg" alt="Europe Study">
+                    <div class="carousel-caption">Годы учебы и работы в Европе</div>
+                </div>
+            </div>
+
+            <div class="nav-arrow arrow-right" onclick="moveCarousel(1)">›</div>
+        </div>
+    </section>
+
+    <!-- Dark layer background for expanded zoom feature -->
+    <div id="overlayBg" class="gallery-overlay-bg" onclick="closeZoom()"></div>
+
     <!-- SECTION 4: CONTACTS -->
     <section class="section-white" id="contact">
-        <div
-            style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; text-align: left;">
+        <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; text-align: left;">
 
             <!-- LEFT SIDE: INFO -->
             <div>
                 <h2>Связаться со мной</h2>
-                <p style="font-size: var(--size-card-text);">Выберите удобный мессенджер или просто оставьте сообщение в
-                    форме справа. Я обычно отвечаю в течение часа.</p>
+                <p style="font-size: var(--size-card-text);">Выберите удобный мессенджер или просто оставьте сообщение в форме справа. Я обычно отвечаю в течение часа.</p>
 
                 <div class="contact-list">
                     <div class="contact-item">
                         <span class="contact-label">Telegram:</span>
-                        <a href="https://t.me/TrumanBoom"
-                            style="color: var(--telegram-blue); text-decoration: none;">@TrumanBoom</a>
+                        <a href="https://t.me/TrumanBoom" style="color: var(--telegram-blue); text-decoration: none;">@TrumanBoom</a>
                     </div>
-                    
+
                     <div class="contact-item">
                         <span class="contact-label">Email:</span>
                         <span>dburtsev@gmail.com</span>
@@ -315,23 +579,105 @@
             <!-- RIGHT SIDE: CONTACT FORM -->
             <div style="background: var(--bg-warm); padding: 30px; border-radius: 20px;">
                 <h3 style="margin-top: 0;">Задать вопрос</h3>
-                <!-- Replace the URL in 'action' with your Formspree link later -->
-                <form action="https://formspree.io/f/xjgldnee" method="POST"
-                    style="display: flex; flex-direction: column; gap: 15px;">
-                    <input type="text" name="name" placeholder="Ваше имя" required
-                        style="padding: 12px; border-radius: 8px; border: 1px solid #ccc;">
-                    <input type="email" name="email" placeholder="Ваш Email" required
-                        style="padding: 12px; border-radius: 8px; border: 1px solid #ccc;">
-                    <textarea name="message" rows="4" placeholder="Ваш вопрос или пожелание..." required
-                        style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;"></textarea>
-                    <button type="submit" class="cta-button"
-                        style="border: none; cursor: pointer; width: 100%;">Отправить сообщение</button>
+                <form action="https://formspree.io/f/xjgldnee" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" name="name" placeholder="Ваше имя" required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc;">
+                    <input type="email" name="email" placeholder="Ваш Email" required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc;">
+                    <textarea name="message" rows="4" placeholder="Ваш вопрос или пожелание..." required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;"></textarea>
+                    <button type="submit" class="cta-button" style="border: none; cursor: pointer; width: 100%;">Отправить сообщение</button>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* --- AUDIO LOGIC --- */
+        const audio = document.getElementById('myVoice');
+        const btn = document.getElementById('voiceBtn');
+        const icon = document.getElementById('voiceIcon');
+        const transcript = document.getElementById('voiceTranscript');
 
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                icon.textContent = '❚❚'; 
+                btn.style.background = 'var(--accent-gold)';
+                btn.style.color = 'var(--primary-dark)';
+                transcript.style.display = 'block'; 
+            } else {
+                audio.pause();
+                icon.textContent = '▶'; 
+                btn.style.background = 'transparent';
+                btn.style.color = 'var(--accent-gold)';
+                transcript.style.display = 'none'; 
+            }
+        }
+
+        audio.onended = function () {
+            icon.textContent = '▶';
+            btn.style.background = 'transparent';
+            btn.style.color = 'var(--accent-gold)';
+            transcript.style.display = 'none'; 
+        };
+
+        /* --- 3D CAROUSEL LOGIC --- */
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const overlayBg = document.getElementById('overlayBg');
+        let isZoomed = false;
+
+        function updateCarousel() {
+            items.forEach((item, index) => {
+                // Clear out old dynamic layout classes
+                item.classList.remove('active', 'prev', 'next');
+                
+                if (index === currentIndex) {
+                    item.classList.add('active');
+                } else if (index === (currentIndex - 1 + items.length) % items.length) {
+                    item.classList.add('prev');
+                } else if (index === (currentIndex + 1) % items.length) {
+                    item.classList.add('next');
+                }
+            });
+        }
+
+        function moveCarousel(direction) {
+            if (isZoomed) closeZoom(); // Auto-close zoom if user shifts carousel
+            currentIndex = (currentIndex + direction + items.length) % items.length;
+            updateCarousel();
+        }
+
+        function handleItemClick(clickedIndex) {
+            if (clickedIndex === currentIndex) {
+                // If they clicked the large middle picture, trigger full screen expansion toggle
+                toggleZoom(items[clickedIndex]);
+            } else {
+                // If they clicked a smaller side picture, cycle it immediately to the center
+                currentIndex = clickedIndex;
+                updateCarousel();
+            }
+        }
+
+        function toggleZoom(item) {
+            if (!isZoomed) {
+                item.classList.add('zoomed');
+                overlayBg.classList.add('show');
+                isZoomed = true;
+            } else {
+                closeZoom();
+            }
+        }
+
+        function closeZoom() {
+            const currentZoomed = document.querySelector('.carousel-item.zoomed');
+            if (currentZoomed) currentZoomed.classList.remove('zoomed');
+            overlayBg.classList.remove('show');
+            isZoomed = false;
+        }
+
+        // Initialize the arrangement on site start
+        updateCarousel();
+    </script>
 </body>
 
 </html>
