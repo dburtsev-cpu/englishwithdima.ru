@@ -14,18 +14,36 @@
             --white: #ffffff;
             --telegram-blue: #0088cc;
 
-            /* --- FONT CONTROL PANEL --- */
+            /* =========================================
+               FONT CONTROL PANEL (FULLY SEPARATED)
+               ========================================= */
             --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
-            --size-hero-title: 3.5rem;
-            --size-hero-subtitle: 1.5rem;
-            --size-hero-text: 1.4rem;
+            /* 1. HERO SECTION (Top Intro) */
+            --size-hero-subtitle: 1.5rem; /* "English Speaking Partner" */
+            --size-hero-title: 3.5rem;    /* "Привет! Я Дима." */
+            --size-hero-text: 1.5rem;     /* "Я не предлагаю скучные уроки..." */
 
-            --size-section-h2: 2.5rem;
-            --size-card-title: 1.3rem;
-            --size-card-text: 1.15rem;
-            --size-contact-text: 1.2rem;
-            --size-button: 1.1rem;
+            /* 2. FORMAT SECTION */
+            --size-format-title: 2.5rem;  /* "Формат обучения" */
+            --size-format-text: 1.3rem;   /* "Никакого стресса. Мы просто..." */
+
+            /* 3. WHY ME SECTION (Cards) */
+            --size-whyme-title: 2.5rem;   /* "Почему со мной?" */
+            --size-card-title: 1.4rem;    /* "7 Лет в Китае" / "Западное Образование" */
+            --size-card-text: 1.2rem;    /* "Опыт преподавания..." (Text inside cards) */
+
+            /* 4. GALLERY SECTION */
+            --size-gallery-title: 2.5rem; /* "Немного о моей жизни и путешествиях" */
+            --size-gallery-text: 1.1rem;  /* "Язык оживает только в реальном общении..." */
+
+            /* 5. CONTACT SECTION (Bottom) */
+            --size-contact-title: 2.5rem; /* "Связаться со мной" & "Задать вопрос" */
+            --size-contact-desc: 1.3rem;  /* "Выберите удобный мессенджер..." */
+            --size-contact-items: 1.3rem; /* Telegram and Email text items */
+
+            /* 6. BUTTONS */
+            --size-button: 1.1rem;        /* Main button text sizes */
         }
 
         body {
@@ -33,7 +51,7 @@
             margin: 0;
             color: #444;
             line-height: 1.6;
-            overflow-x: hidden; /* Prevents unwanted sideways scrolling */
+            overflow-x: hidden; 
         }
 
         /* --- SECTION 1: HERO --- */
@@ -120,11 +138,26 @@
             margin-bottom: 40px;
         }
 
+        .format-title {
+            font-size: var(--size-format-title);
+            color: var(--primary-dark);
+        }
+
+        .format-text {
+            font-size: var(--size-format-text);
+        }
+
         /* --- SECTION 3: CARDS (Why Me) --- */
         .section-warm {
             background: var(--bg-warm);
             padding: 80px 20px;
             text-align: center;
+        }
+
+        .whyme-title {
+            font-size: var(--size-whyme-title);
+            color: var(--primary-dark);
+            margin-bottom: 20px;
         }
 
         .card-grid {
@@ -155,22 +188,40 @@
             text-transform: uppercase;
         }
 
-        /* --- NEW SECTION 3.5: GALLERY INTERACTIVE CAROUSEL --- */
+        .card-text {
+            font-size: var(--size-card-text);
+            margin-top: 15px;
+        }
+
+        /* --- SECTION 3.5: GALLERY INTERACTIVE CAROUSEL --- */
         .gallery-section {
             background: var(--white);
             padding: 80px 20px;
             text-align: center;
         }
 
+        .gallery-title {
+            font-size: var(--size-gallery-title);
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .gallery-text {
+            font-size: var(--size-gallery-text);
+            max-width: 600px; 
+            margin: 0 auto; 
+            color: #666;
+        }
+
         .carousel-wrapper {
             position: relative;
-            max-width: 950px;
-            height: 400px;
+            max-width: 1000px;
+            height: 420px;
             margin: 40px auto 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            perspective: 1000px; /* Gives the 3D depth feeling */
+            perspective: 1000px;
         }
 
         .carousel-container {
@@ -184,8 +235,8 @@
 
         .carousel-item {
             position: absolute;
-            width: 450px;
-            height: 300px;
+            width: 460px;
+            height: 310px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
@@ -202,13 +253,12 @@
             object-fit: cover;
         }
 
-        /* Text label overlay inside each picture */
         .carousel-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
             color: white;
             padding: 20px;
             font-size: 1.1rem;
@@ -218,11 +268,10 @@
             transition: opacity 0.3s ease;
         }
 
-        /* 3D states applied dynamically by JavaScript */
         .carousel-item.active {
             opacity: 1;
             pointer-events: auto;
-            transform: translate3d(0, 0, 100px) scale(1);
+            transform: translate3d(0, 0, 120px) scale(1);
             z-index: 5;
         }
 
@@ -233,51 +282,17 @@
         .carousel-item.prev {
             opacity: 0.65;
             pointer-events: auto;
-            transform: translate3d(-220px, 0, 0) scale(0.8) rotateY(15deg);
+            transform: translate3d(-260px, 0, 0) scale(0.8) rotateY(15deg);
             z-index: 3;
         }
 
         .carousel-item.next {
             opacity: 0.65;
             pointer-events: auto;
-            transform: translate3d(220px, 0, 0) scale(0.8) rotateY(-15deg);
+            transform: translate3d(260px, 0, 0) scale(0.8) rotateY(-15deg);
             z-index: 3;
         }
 
-        /* Full screen Zoom overlay state */
-        .carousel-item.zoomed {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1.4) !important;
-            width: 550px;
-            height: 380px;
-            z-index: 999;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-            cursor: zoom-out;
-        }
-
-        /* Dim background layer when image zooms */
-        .gallery-overlay-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(5px);
-            z-index: 998;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-overlay-bg.show {
-            display: block;
-            opacity: 1;
-        }
-
-        /* Navigation Arrows */
         .nav-arrow {
             position: absolute;
             top: 50%;
@@ -309,6 +324,16 @@
         .arrow-right { right: 10px; }
 
         /* --- SECTION 4: CONTACTS --- */
+        .contact-title {
+            font-size: var(--size-contact-title);
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .contact-desc {
+            font-size: var(--size-contact-desc);
+        }
+
         .contact-list {
             list-style: none;
             padding: 0;
@@ -318,7 +343,7 @@
         }
 
         .contact-item {
-            font-size: var(--size-contact-text);
+            font-size: var(--size-contact-items);
             margin-bottom: 20px;
             padding: 15px;
             border-radius: 10px;
@@ -337,12 +362,6 @@
         }
 
         /* --- UI COMPONENTS --- */
-        h2 {
-            font-size: var(--size-section-h2);
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-        }
-
         .cta-button {
             display: inline-block;
             background: var(--telegram-blue);
@@ -388,14 +407,10 @@
                 height: 190px;
             }
             .carousel-item.prev {
-                transform: translate3d(-100px, 0, 0) scale(0.7);
+                transform: translate3d(-110px, 0, 0) scale(0.7);
             }
             .carousel-item.next {
-                transform: translate3d(100px, 0, 0) scale(0.7);
-            }
-            .carousel-item.zoomed {
-                width: 90%;
-                height: 240px;
+                transform: translate3d(110px, 0, 0) scale(0.7);
             }
         }
 
@@ -437,7 +452,6 @@
             transform: translateY(0);
         }
 
-        /* Text transcript styling */
         .voice-transcript {
             max-width: 500px;
             margin-top: 15px;
@@ -454,6 +468,58 @@
             from { opacity: 0; transform: translateY(-5px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* --- LIGHTBOX --- */
+        .custom-lightbox {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 30, 0.92);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        .custom-lightbox img {
+            max-width: 85%;
+            max-height: 80%;
+            object-fit: contain;
+            border: 4px solid var(--white);
+            border-radius: 6px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            filter: none !important;
+            -webkit-filter: none !important;
+        }
+
+        .custom-lightbox-caption {
+            position: absolute;
+            bottom: 4%;
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 25px;
+            border-radius: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: rgba(255,255,255,0.7);
+            font-size: 50px;
+            font-weight: 300;
+            transition: color 0.2s;
+        }
+        .custom-lightbox:hover .custom-lightbox-close {
+            color: var(--white);
+        }
     </style>
 </head>
 
@@ -468,18 +534,13 @@
                 <p>Я не предлагаю скучные уроки с учебниками. Я предлагаю живое общение. Если вам нужно преодолеть
                     языковой барьер, начать <em>чувствовать</em> язык и просто говорить — вы по адресу.</p>
                 
-                <!-- Voice Preview Section with Hidden Subtitles -->
                 <div class="voice-preview-container">
                     <button id="voiceBtn" class="voice-button" onclick="toggleAudio()">
                         <span id="voiceIcon">▶</span> Послушать мой голос
                     </button>
                     
                     <div id="voiceTranscript" class="voice-transcript">
-                        "Hi there, my name is Dima. If you want to practice enlgish without complex grammar, boring books, you are in a right place.
-My goal is to help you to improve your speaking through real, relaxed conversations just like two friends catching up over a coffee.
-We can talk about your day, your interestes, you can just vent and clear your head after work. 
-And dont worry about making mistakes, i am here to help you to find the right words on the fly.
-Hit the button below and lets get started."
+                        "Hi there! My name is Dima. If you want to practice your English without complex grammar or boring books, you’re in the right place. My goal is to help you improve your speaking through real, relaxed conversations—just like two friends catching up over coffee. We can talk about your day, your interests, or you can just vent and clear your head after work. And don't worry about making mistakes; I’m here to help you find the right words on the fly. Hit the button below... and let's get started."
                     </div>
 
                     <audio id="myVoice" src="audio/dima-voice.mp3"></audio>
@@ -494,12 +555,12 @@ Hit the button below and lets get started."
 
     <!-- SECTION 2: FORMAT -->
     <section class="section-white">
-        <h2 class="section-title-centered">Формат обучения</h2>
+        <h2 class="section-title-centered format-title">Формат обучения</h2>
 
         <div class="split-grid">
             <img src="images/coffee.jpg" class="coffee-img" alt="Atmosphere">
             <div>
-                <p style="font-size: var(--size-hero-text);">
+                <p class="format-text">
                     <strong>Никакого стресса.</strong> Мы просто созваниваемся и общаемся на интересные вам темы. Это больше похоже на встречу друзей: в уютной атмосфере, как за чашечкой кофе, вы делитесь мыслями, рассказываете о своем дне и просто разгружаете голову. В процессе такого живого разговора я помогаю расширять словарный запас и разобраться с грамматикой на лету — так что ваш языковой барьер и неуверенность исчезают сами собой, а уровень будет расти с каждой встречей.
                 </p>
             </div>
@@ -508,46 +569,55 @@ Hit the button below and lets get started."
 
     <!-- SECTION 3: WHY ME -->
     <section class="section-warm">
-        <h2>Почему со мной?</h2>
+        <h2 class="whyme-title">Почему со мной?</h2>
         <div class="card-grid">
             <div class="info-card">
                 <div class="card-accent">7 Лет в Китае</div>
-                <p>Опыт преподавания английского за рубежом. Я знаю, как объяснить язык тем, для кого он не является родным.</p>
+                <p class="card-text">Опыт преподавания английского за рубежом. Я знаю, как объяснить язык тем, для кого он не является родным.</p>
             </div>
             <div class="info-card">
                 <div class="card-accent">Западное Образование</div>
-                <p>Диплом американского университета в Голландии (Hanze University). Обучение полностью на английском языке.</p>
+                <p class="card-text">Диплом американского университета в Голландения (Hanze University). Обучение полностью на английском языке.</p>
             </div>
             <div class="info-card">
                 <div class="card-accent">Живой Английский</div>
-                <p>Жил в США и работал в международной среде. Учу не книжным фразам, а реальному общению.</p>
+                <p class="card-text">Жил в США и работал в международной среде. Учу не книжным фразам, а реальному общению.</p>
             </div>
         </div>
     </section>
 
-    <!-- NEW SECTION 3.5: LIFE & TRAVELS CAROUSEL -->
+    <!-- SECTION 3.5: LIFE & TRAVELS CAROUSEL -->
     <section class="gallery-section">
-        <h2>Немного о моей жизни и путешествиях</h2>
-        <p style="max-width: 600px; margin: 0 auto; color: #666;">Практика языка — это погружение в опыт. Вот несколько моментов из моих поездок и работы за границей.</p>
+        <h2 class="gallery-title">Немного о моей жизни и путешествиях</h2>
+        <p class="gallery-text">Язык оживает только в реальном общении. Вот несколько кадров из моей жизни, учёбы и работы за рубежом.</p>
         
         <div class="carousel-wrapper">
             <div class="nav-arrow arrow-left" onclick="moveCarousel(-1)">‹</div>
             
             <div class="carousel-container">
-                <!-- Photo 1 -->
                 <div class="carousel-item" onclick="handleItemClick(0)">
-                    <img src="images/gallery1.jpg" alt="Teaching">
+                    <img src="images/gallery1.jpg" alt="Teaching China">
                     <div class="carousel-caption">Преподавание английского языка в Китае</div>
                 </div>
-                <!-- Photo 2 -->
                 <div class="carousel-item" onclick="handleItemClick(1)">
                     <img src="images/gallery2.jpg" alt="USA Travel">
                     <div class="carousel-caption">Путешествия и жизнь в Соединенных Штатах</div>
                 </div>
-                <!-- Photo 3 -->
                 <div class="carousel-item" onclick="handleItemClick(2)">
                     <img src="images/gallery3.jpg" alt="Europe Study">
                     <div class="carousel-caption">Годы учебы и работы в Европе</div>
+                </div>
+                <div class="carousel-item" onclick="handleItemClick(3)">
+                    <img src="images/gallery4.jpg" alt="Travel Moments">
+                    <div class="carousel-caption">Вдохновляющие поездки по всему миру</div>
+                </div>
+                <div class="carousel-item" onclick="handleItemClick(4)">
+                    <img src="images/gallery5.jpg" alt="With Students">
+                    <div class="carousel-caption">Общение с людьми со всех уголков планеты</div>
+                </div>
+                <div class="carousel-item" onclick="handleItemClick(5)">
+                    <img src="images/gallery6.jpg" alt="Atmosphere Journey">
+                    <div class="carousel-caption">Работа в Китае</div>
                 </div>
             </div>
 
@@ -555,17 +625,14 @@ Hit the button below and lets get started."
         </div>
     </section>
 
-    <!-- Dark layer background for expanded zoom feature -->
-    <div id="overlayBg" class="gallery-overlay-bg" onclick="closeZoom()"></div>
-
     <!-- SECTION 4: CONTACTS -->
     <section class="section-white" id="contact">
         <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; text-align: left;">
 
             <!-- LEFT SIDE: INFO -->
             <div>
-                <h2>Связаться со мной</h2>
-                <p style="font-size: var(--size-card-text);">Выберите удобный мессенджер или просто оставьте сообщение в форме справа. Я обычно отвечаю в течение часа.</p>
+                <h2 class="contact-title">Связаться со мной</h2>
+                <p class="contact-desc">Выберите удобный мессенджер или просто оставьте сообщение в форме справа. Я обычно отвечаю в течение часа.</p>
 
                 <div class="contact-list">
                     <div class="contact-item">
@@ -582,7 +649,7 @@ Hit the button below and lets get started."
 
             <!-- RIGHT SIDE: CONTACT FORM -->
             <div style="background: var(--bg-warm); padding: 30px; border-radius: 20px;">
-                <h3 style="margin-top: 0;">Задать вопрос</h3>
+                <h3 class="contact-title" style="margin-top: 0;">Задать вопрос</h3>
                 <form action="https://formspree.io/f/xjgldnee" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
                     <input type="text" name="name" placeholder="Ваше имя" required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc;">
                     <input type="email" name="email" placeholder="Ваш Email" required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc;">
@@ -593,9 +660,13 @@ Hit the button below and lets get started."
         </div>
     </section>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <div id="customLightbox" class="custom-lightbox" onclick="closeLightboxPopup()">
+        <span class="custom-lightbox-close">&times;</span>
+        <img id="customLightboxImg" src="" alt="Enlarged view">
+        <div id="customLightboxCaption" class="custom-lightbox-caption"></div>
+    </div>
+
     <script>
-        /* --- AUDIO LOGIC --- */
         const audio = document.getElementById('myVoice');
         const btn = document.getElementById('voiceBtn');
         const icon = document.getElementById('voiceIcon');
@@ -624,15 +695,11 @@ Hit the button below and lets get started."
             transcript.style.display = 'none'; 
         };
 
-        /* --- 3D CAROUSEL LOGIC --- */
         let currentIndex = 0;
         const items = document.querySelectorAll('.carousel-item');
-        const overlayBg = document.getElementById('overlayBg');
-        let isZoomed = false;
 
         function updateCarousel() {
             items.forEach((item, index) => {
-                // Clear out old dynamic layout classes
                 item.classList.remove('active', 'prev', 'next');
                 
                 if (index === currentIndex) {
@@ -646,42 +713,43 @@ Hit the button below and lets get started."
         }
 
         function moveCarousel(direction) {
-            if (isZoomed) closeZoom(); // Auto-close zoom if user shifts carousel
             currentIndex = (currentIndex + direction + items.length) % items.length;
             updateCarousel();
         }
 
         function handleItemClick(clickedIndex) {
             if (clickedIndex === currentIndex) {
-                // If they clicked the large middle picture, trigger full screen expansion toggle
-                toggleZoom(items[clickedIndex]);
+                openLightboxPopup(items[clickedIndex]);
             } else {
-                // If they clicked a smaller side picture, cycle it immediately to the center
                 currentIndex = clickedIndex;
                 updateCarousel();
             }
         }
 
-        function toggleZoom(item) {
-            if (!isZoomed) {
-                item.classList.add('zoomed');
-                overlayBg.classList.add('show');
-                isZoomed = true;
-            } else {
-                closeZoom();
+        const lightboxElement = document.getElementById('customLightbox');
+        const lightboxImg = document.getElementById('customLightboxImg');
+        const lightboxCaption = document.getElementById('customLightboxCaption');
+
+        function openLightboxPopup(carouselItem) {
+            const originalImg = carouselItem.querySelector('img');
+            const originalCaption = carouselItem.querySelector('.carousel-caption');
+
+            if (originalImg) {
+                lightboxImg.src = originalImg.src;
+                lightboxCaption.textContent = originalCaption ? originalCaption.textContent : "";
+                
+                lightboxElement.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; 
             }
         }
 
-        function closeZoom() {
-            const currentZoomed = document.querySelector('.carousel-item.zoomed');
-            if (currentZoomed) currentZoomed.classList.remove('zoomed');
-            overlayBg.classList.remove('show');
-            isZoomed = false;
+        function closeLightboxPopup() {
+            lightboxElement.style.display = 'none';
+            document.body.style.overflow = 'auto'; 
         }
 
-        // Initialize the arrangement on site start
         updateCarousel();
     </script>
-</body>
 
+</body>
 </html>
