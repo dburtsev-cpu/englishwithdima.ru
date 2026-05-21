@@ -31,7 +31,7 @@
             /* 3. WHY ME SECTION (Cards) */
             --size-whyme-title: 2.5rem;   /* "Почему со мной?" */
             --size-card-title: 1.4rem;    /* "7 Лет в Китае" / "Западное Образование" */
-            --size-card-text: 1.2rem;    /* "Опыт преподавания..." (Text inside cards) */
+            --size-card-text: 1.15rem;    /* "Опыт преподавания..." (Text inside cards) */
 
             /* 4. GALLERY SECTION */
             --size-gallery-title: 2.5rem; /* "Немного о моей жизни и путешествиях" */
@@ -42,8 +42,9 @@
             --size-contact-desc: 1.3rem;  /* "Выберите удобный мессенджер..." */
             --size-contact-items: 1.3rem; /* Telegram and Email text items */
 
-            /* 6. BUTTONS */
+            /* 6. BUTTONS & UI */
             --size-button: 1.1rem;        /* Main button text sizes */
+            --size-voice-btn: 1rem;       /* Voice preview button */
         }
 
         body {
@@ -51,13 +52,13 @@
             margin: 0;
             color: #444;
             line-height: 1.6;
-            overflow-x: hidden; 
+            overflow-x: hidden; /* Prevent unwanted sideways scrolling */
         }
 
         /* --- SECTION 1: HERO --- */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-                url('images/atmosphere5.webp');
+                url('images/atmosphere5.webp'); /* Adjust extension to .webp or .jpg as needed */
             background-size: cover;
             background-position: center;
             color: white;
@@ -221,7 +222,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            perspective: 1000px;
+            perspective: 1000px; /* Gives the 3D depth feeling */
         }
 
         .carousel-container {
@@ -253,6 +254,7 @@
             object-fit: cover;
         }
 
+        /* Text label overlay inside each picture */
         .carousel-caption {
             position: absolute;
             bottom: 0;
@@ -268,6 +270,7 @@
             transition: opacity 0.3s ease;
         }
 
+        /* 3D states applied dynamically by JavaScript */
         .carousel-item.active {
             opacity: 1;
             pointer-events: auto;
@@ -293,6 +296,7 @@
             z-index: 3;
         }
 
+        /* Navigation Arrows */
         .nav-arrow {
             position: absolute;
             top: 50%;
@@ -323,7 +327,16 @@
         .arrow-left { left: 10px; }
         .arrow-right { right: 10px; }
 
-        /* --- SECTION 4: CONTACTS --- */
+        /* --- SECTION 4: CONTACTS LAYOUT FIX --- */
+        .contact-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns for desktop */
+            gap: 50px;
+            text-align: left;
+        }
+
         .contact-title {
             font-size: var(--size-contact-title);
             color: var(--primary-dark);
@@ -379,14 +392,24 @@
             filter: brightness(1.1);
         }
 
-        /* --- MOBILE --- */
+        /* --- MOBILE MEDIA QUERY (Fixes and standard adjustments) --- */
         @media (max-width: 800px) {
 
+            /* FIX: Adding .contact-grid here allows columns to stack vertically */
             .hero-container,
-            .split-grid {
-                flex-direction: column-reverse;
-                grid-template-columns: 1fr;
+            .split-grid,
+            .contact-grid {
+                flex-direction: column-reverse; /* For flex layouts if any bleed in */
+                grid-template-columns: 1fr;    /* Force single column grid */
                 text-align: center;
+            }
+
+            .split-grid, .contact-grid {
+                gap: 30px; /* Reduce gap slightly for smaller screens */
+            }
+
+            .hero-container {
+                gap: 30px;
             }
 
             .profile-img {
@@ -394,11 +417,13 @@
                 height: 200px;
             }
 
+            /* Adjust main titles for mobile spacing */
             :root {
                 --size-hero-title: 2.8rem;
                 --size-hero-text: 1.3rem;
             }
 
+            /* Gallery spacing adjustments for mobile */
             .carousel-wrapper {
                 height: 300px;
             }
@@ -414,11 +439,12 @@
             }
         }
 
+        /* --- Form Styling --- */
         input:focus,
         textarea:focus {
             outline: none;
             border-color: var(--accent-gold);
-            box-shadow: 0 0 5px rgba(235, 23, 76, 0.3);
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
         }
 
         /* --- VOICE PREVIEW COMPONENT --- */
@@ -432,7 +458,7 @@
             border: 2px solid var(--accent-gold);
             padding: 12px 25px;
             border-radius: 30px;
-            font-size: 1rem;
+            font-size: var(--size-voice-btn);
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -452,6 +478,7 @@
             transform: translateY(0);
         }
 
+        /* Text transcript styling */
         .voice-transcript {
             max-width: 500px;
             margin-top: 15px;
@@ -469,7 +496,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- LIGHTBOX --- */
+        /* --- PREMIUM LIGHTBOX POPUP SYSTEM (CLEAN & SHARP) --- */
         .custom-lightbox {
             display: none;
             position: fixed;
@@ -478,7 +505,7 @@
             top: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(15, 23, 30, 0.92);
+            background: rgba(15, 23, 30, 0.92); /* Dark velvet background */
             align-items: center;
             justify-content: center;
             cursor: zoom-out;
@@ -491,6 +518,7 @@
             border: 4px solid var(--white);
             border-radius: 6px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            /* This completely stops any inherited blur filters from the main page */
             filter: none !important;
             -webkit-filter: none !important;
         }
@@ -525,7 +553,6 @@
 
 <body>
 
-    <!-- SECTION 1: HERO -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-text">
@@ -540,7 +567,7 @@
                     </button>
                     
                     <div id="voiceTranscript" class="voice-transcript">
-                        "Hi there! My name is Dima. If you want to practice your English without complex grammar or boring books, you’re in the right place. My goal is to help you improve your speaking through real, relaxed conversations—just like two friends catching up over coffee. We can talk about your day, your interests, or you can just vent and clear your head after work. And don't worry about making mistakes; I’m here to help you find the right words on the fly. Hit the button below... and let's get started."
+                        "Hi there! My name is Dima. If you want to practice your English without complex grammar or boring books, you’re in the right place. My goal is to help you improve your speaking through real, relaxed conversations—just like two friends catching up over coffee. Mistakes are totally fine; I'm here to help you find the right words on the fly. Hit the button below... and let's get started."
                     </div>
 
                     <audio id="myVoice" src="audio/dima-voice.mp3"></audio>
@@ -548,17 +575,16 @@
             </div>
 
             <div class="hero-img-wrapper">
-                <img src="images/dima-profile.jpg" class="profile-img" alt="Dmitriy">
+                <img src="images/dima-profile.jpg" class="profile-img" alt="Dmitriy Profile">
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: FORMAT -->
     <section class="section-white">
         <h2 class="section-title-centered format-title">Формат обучения</h2>
 
         <div class="split-grid">
-            <img src="images/coffee.jpg" class="coffee-img" alt="Atmosphere">
+            <img src="images/coffee.jpg" class="coffee-img" alt="Atmosphere Coffee">
             <div>
                 <p class="format-text">
                     <strong>Никакого стресса.</strong> Мы просто созваниваемся и общаемся на интересные вам темы. Это больше похоже на встречу друзей: в уютной атмосфере, как за чашечкой кофе, вы делитесь мыслями, рассказываете о своем дне и просто разгружаете голову. В процессе такого живого разговора я помогаю расширять словарный запас и разобраться с грамматикой на лету — так что ваш языковой барьер и неуверенность исчезают сами собой, а уровень будет расти с каждой встречей.
@@ -567,7 +593,6 @@
         </div>
     </section>
 
-    <!-- SECTION 3: WHY ME -->
     <section class="section-warm">
         <h2 class="whyme-title">Почему со мной?</h2>
         <div class="card-grid">
@@ -577,7 +602,7 @@
             </div>
             <div class="info-card">
                 <div class="card-accent">Западное Образование</div>
-                <p class="card-text">Диплом американского университета в Голландения (Hanze University). Обучение полностью на английском языке.</p>
+                <p class="card-text">Диплом американского университета в Голландеия (Hanze University). Обучение полностью на английском языке.</p>
             </div>
             <div class="info-card">
                 <div class="card-accent">Живой Английский</div>
@@ -586,7 +611,6 @@
         </div>
     </section>
 
-    <!-- SECTION 3.5: LIFE & TRAVELS CAROUSEL -->
     <section class="gallery-section">
         <h2 class="gallery-title">Немного о моей жизни и путешествиях</h2>
         <p class="gallery-text">Язык оживает только в реальном общении. Вот несколько кадров из моей жизни, учёбы и работы за рубежом.</p>
@@ -596,7 +620,7 @@
             
             <div class="carousel-container">
                 <div class="carousel-item" onclick="handleItemClick(0)">
-                    <img src="images/gallery1.jpg" alt="Teaching China">
+                    <img src="images/gallery1.jpg" alt="Teaching English China">
                     <div class="carousel-caption">Преподавание английского языка в Китае</div>
                 </div>
                 <div class="carousel-item" onclick="handleItemClick(1)">
@@ -604,19 +628,19 @@
                     <div class="carousel-caption">Путешествия и жизнь в Соединенных Штатах</div>
                 </div>
                 <div class="carousel-item" onclick="handleItemClick(2)">
-                    <img src="images/gallery3.jpg" alt="Europe Study">
+                    <img src="images/gallery3.jpg" alt="Europe Study Hanze">
                     <div class="carousel-caption">Годы учебы и работы в Европе</div>
                 </div>
                 <div class="carousel-item" onclick="handleItemClick(3)">
-                    <img src="images/gallery4.jpg" alt="Travel Moments">
+                    <img src="images/gallery4.jpg" alt="World Travel Moments">
                     <div class="carousel-caption">Вдохновляющие поездки по всему миру</div>
                 </div>
                 <div class="carousel-item" onclick="handleItemClick(4)">
-                    <img src="images/gallery5.jpg" alt="With Students">
+                    <img src="images/gallery5.jpg" alt="With International Students">
                     <div class="carousel-caption">Общение с людьми со всех уголков планеты</div>
                 </div>
                 <div class="carousel-item" onclick="handleItemClick(5)">
-                    <img src="images/gallery6.jpg" alt="Atmosphere Journey">
+                    <img src="images/gallery6.jpg" alt="China Work Atmosphere">
                     <div class="carousel-caption">Работа в Китае</div>
                 </div>
             </div>
@@ -625,11 +649,9 @@
         </div>
     </section>
 
-    <!-- SECTION 4: CONTACTS -->
     <section class="section-white" id="contact">
-        <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; text-align: left;">
+        <div class="contact-grid">
 
-            <!-- LEFT SIDE: INFO -->
             <div>
                 <h2 class="contact-title">Связаться со мной</h2>
                 <p class="contact-desc">Выберите удобный мессенджер или просто оставьте сообщение в форме справа. Я обычно отвечаю в течение часа.</p>
@@ -647,7 +669,6 @@
                 </div>
             </div>
 
-            <!-- RIGHT SIDE: CONTACT FORM -->
             <div style="background: var(--bg-warm); padding: 30px; border-radius: 20px;">
                 <h3 class="contact-title" style="margin-top: 0;">Задать вопрос</h3>
                 <form action="https://formspree.io/f/xjgldnee" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
@@ -662,11 +683,12 @@
 
     <div id="customLightbox" class="custom-lightbox" onclick="closeLightboxPopup()">
         <span class="custom-lightbox-close">&times;</span>
-        <img id="customLightboxImg" src="" alt="Enlarged view">
+        <img id="customLightboxImg" src="" alt="Enlarged view popup">
         <div id="customLightboxCaption" class="custom-lightbox-caption"></div>
     </div>
 
     <script>
+        /* --- AUDIO LOGIC --- */
         const audio = document.getElementById('myVoice');
         const btn = document.getElementById('voiceBtn');
         const icon = document.getElementById('voiceIcon');
@@ -695,11 +717,13 @@
             transcript.style.display = 'none'; 
         };
 
+        /* --- 6-ITEM 3D CAROUSEL LOGIC --- */
         let currentIndex = 0;
         const items = document.querySelectorAll('.carousel-item');
 
         function updateCarousel() {
             items.forEach((item, index) => {
+                // Wipe clean previous classes
                 item.classList.remove('active', 'prev', 'next');
                 
                 if (index === currentIndex) {
@@ -719,13 +743,16 @@
 
         function handleItemClick(clickedIndex) {
             if (clickedIndex === currentIndex) {
+                // If clicking the middle, active photo: Open it crisp and full screen!
                 openLightboxPopup(items[clickedIndex]);
             } else {
+                // If clicking a side photo: Rotate carousel to that photo
                 currentIndex = clickedIndex;
                 updateCarousel();
             }
         }
 
+        /* --- CLEAN LIGHTBOX SCRIPT --- */
         const lightboxElement = document.getElementById('customLightbox');
         const lightboxImg = document.getElementById('customLightboxImg');
         const lightboxCaption = document.getElementById('customLightboxCaption');
@@ -735,19 +762,23 @@
             const originalCaption = carouselItem.querySelector('.carousel-caption');
 
             if (originalImg) {
+                // Load the image source and caption into the popup window
                 lightboxImg.src = originalImg.src;
                 lightboxCaption.textContent = originalCaption ? originalCaption.textContent : "";
                 
+                // Show the window
                 lightboxElement.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; 
+                document.body.style.overflow = 'hidden'; /* Stops main page scrolling while open */
             }
         }
 
         function closeLightboxPopup() {
+            // Hide the window
             lightboxElement.style.display = 'none';
-            document.body.style.overflow = 'auto'; 
+            document.body.style.overflow = 'auto'; /* Gives back scrolling */
         }
 
+        // Initialize arrangement on page load
         updateCarousel();
     </script>
 
