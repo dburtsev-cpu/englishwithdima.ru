@@ -4,7 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English with Dima</title>
+    
+    <!-- ==========================================
+         STANDARD SEO META TAGS
+         ========================================== -->
+    <title>English with Dima — Разговорный английский язык | Преодоление языкового барьера</title>
+    <meta name="description" content="Уроки разговорного английского языка с Димой. Живое общение, преодоление языкового барьера, никакой скучной теории. Пробное знакомство бесплатно.">
+    <meta name="keywords" content="английский язык, разговорный английский, преподаватель английского, английский по скайпу, языковой барьер">
+    
+    <!-- SEO Control: Set to 'index, follow' when you are completely ready to go public -->
+    <meta name="robots" content="index, follow">
+
+    <!-- ==========================================
+         OPEN GRAPH META TAGS (Social Media SEO)
+         ========================================== -->
+    <meta property="og:title" content="English with Dima — Разговорный английский без стресса">
+    <meta property="og:description" content="Живое общение и практика английского языка. Избавьтесь от страха ошибок за чашкой кофе.">
+    <meta property="og:image" content="images/dima-profile.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
+
+    <!-- ==========================================
+         SCHEMA.ORG STRUCTURED DATA (Machine Readable)
+         ========================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "IndividualProduct",
+      "name": "Разговорный английский язык с Дмитрием",
+      "description": "Практика английского языка через живое общение и преодоление языкового барьера.",
+      "image": "images/dima-profile.jpg",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "RUB",
+        "lowPrice": "1300",
+        "highPrice": "1500",
+        "offerCount": "2"
+      },
+      "provider": {
+        "@type": "Person",
+        "name": "Дмитрий",
+        "jobTitle": "English Speaking Partner / Teacher",
+        "description": "Преподаватель английского языка с опытом работы в США, Европе и Китае."
+      }
+    }
+    </script>
+    
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109477225', 'ym');
+
+    ym(109477225, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109477225" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
     <style>
         :root {
             /* --- COLOR PALETTE --- */
@@ -14,12 +72,10 @@
             --white: #ffffff;
             --telegram-blue: #0088cc;
 
-            /* =========================================
-               FONT CONTROL PANEL (FULLY SEPARATED)
-               ========================================= */
+            /* --- FONT CONTROL PANEL --- */
             --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
-            /* 1. HERO SECTION (Top Intro) */
+            /* 1. HERO SECTION */
             --size-hero-subtitle: 1.5rem;
             --size-hero-title: 3.5rem;
             --size-hero-text: 1.5rem;
@@ -28,7 +84,7 @@
             --size-format-title: 2.5rem;
             --size-format-text: 1.3rem;
 
-            /* 3. WHY ME SECTION (Cards) */
+            /* 3. WHY ME SECTION */
             --size-whyme-title: 2.5rem;
             --size-card-title: 1.4rem;
             --size-card-text: 1.15rem;
@@ -37,10 +93,18 @@
             --size-gallery-title: 2.5rem;
             --size-gallery-text: 1.1rem;
 
-            /* 5. PRICING SECTION */
-            --size-pricing-title: 2.5rem;
+            /* 5. PRICING SECTION & CARDS */
+            --size-pricing-title: 2.5rem;       
+            --size-pricing-intro: 1.3rem;       
+            --size-price-card-title: 1.5rem;    
+            --size-price-amount: 2.3rem;        
+            --size-price-subamount: 1.4rem;     
+            --size-price-period: 1.1rem;        
+            --size-price-features: 1.1rem;      
+            --size-guarantee-title: 1.2rem;     
+            --size-guarantee-text: 1.15rem;     
 
-            /* 6. CONTACT SECTION (Bottom) */
+            /* 6. CONTACT SECTION */
             --size-contact-title: 2.5rem;
             --size-contact-desc: 1.3rem;
             --size-contact-items: 1.3rem;
@@ -197,7 +261,7 @@
             margin-top: 15px;
         }
 
-        /* --- SECTION 3.5: GALLERY INTERACTIVE CAROUSEL --- */
+        /* --- SECTION 3.5: GALLERY CAROUSEL --- */
         .gallery-section {
             background: var(--white);
             padding: 80px 20px;
@@ -327,7 +391,7 @@
         .arrow-left { left: 10px; }
         .arrow-right { right: 10px; }
 
-        /* --- SECTION 4: PRICING & FORMAT --- */
+        /* --- SECTION 4: PRICING --- */
         .pricing-section {
             background: var(--bg-warm);
             padding: 80px 20px;
@@ -349,6 +413,13 @@
             font-size: var(--size-pricing-title);
             color: var(--primary-dark);
             margin-bottom: 15px;
+        }
+
+        .pricing-intro {
+            font-size: var(--size-pricing-intro);
+            max-width: 750px; 
+            margin: 0 auto; 
+            color: #555;
         }
 
         .pricing-cards {
@@ -376,11 +447,16 @@
 
         .price-card.accent-card {
             border-top: 5px solid var(--accent-gold);
-            background: #fffcf6; /* Слегка выделенный фон для пакета */
+            background: #fffcf6; 
+        }
+
+        .price-card h3.card-accent {
+            font-size: var(--size-price-card-title);
+            margin-top: 0;
         }
 
         .price-amount {
-            font-size: 2.3rem;
+            font-size: var(--size-price-amount);
             font-weight: bold;
             color: var(--primary-dark);
             margin: 15px 0 25px 0;
@@ -388,11 +464,18 @@
         }
 
         .price-amount span {
-            font-size: 1.1rem;
+            font-size: var(--size-price-period);
             color: #777;
             font-weight: normal;
             display: block;
             margin-top: 5px;
+        }
+
+        .price-sub-row {
+            font-size: var(--size-price-subamount);
+            font-weight: bold;
+            margin-top: 10px;
+            color: var(--primary-dark);
         }
 
         .price-feature-list {
@@ -406,7 +489,7 @@
             margin-bottom: 15px;
             padding-left: 25px;
             position: relative;
-            font-size: 1.1rem;
+            font-size: var(--size-price-features);
         }
 
         .price-feature-list li::before {
@@ -416,6 +499,39 @@
             left: 0;
             font-size: 1.2rem;
             font-weight: bold;
+        }
+
+        /* --- GUARANTEE BOX --- */
+        .guarantee-box {
+            max-width: 800px;
+            margin: 10px auto 0;
+            padding: 25px 30px;
+            background: #fffcf6;
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            text-align: left;
+        }
+
+        .guarantee-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .guarantee-text {
+            font-size: var(--size-guarantee-text);
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .guarantee-text strong {
+            color: var(--primary-dark);
+            font-size: var(--size-guarantee-title);
+            display: block;
+            margin-bottom: 5px;
         }
 
         /* --- SECTION 5: CONTACTS --- */
@@ -525,9 +641,14 @@
             .carousel-item.next {
                 transform: translate3d(110px, 0, 0) scale(0.7);
             }
+            .guarantee-box {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
         }
 
-        /* --- Form Styling --- */
+        /* --- INPUTS --- */
         input:focus,
         textarea:focus {
             outline: none;
@@ -535,7 +656,7 @@
             box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
         }
 
-        /* --- VOICE PREVIEW COMPONENT --- */
+        /* --- VOICE PREVIEW --- */
         .voice-preview-container {
             margin-top: 25px;
         }
@@ -583,7 +704,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- PREMIUM LIGHTBOX POPUP SYSTEM --- */
+        /* --- LIGHTBOX POPUP SYSTEM --- */
         .custom-lightbox {
             display: none;
             position: fixed;
@@ -639,160 +760,177 @@
 
 <body>
 
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <span class="hero-subtitle">English Speaking Partner</span>
-                <h1>Привет! Я Дима.</h1>
-                <p>Я не предлагаю скучные уроки с учебниками. Я предлагаю живое общение. Если вам нужно преодолеть
-                    языковой барьер, начать <em>чувствовать</em> язык и просто говорить — вы по адресу.</p>
-                
-                <div class="voice-preview-container">
-                    <button id="voiceBtn" class="voice-button" onclick="toggleAudio()">
-                        <span id="voiceIcon">▶</span> Послушать мой голос
-                    </button>
+    <!-- Semantic Structural Wrappers for SEO Crawlers -->
+    <main>
+        <!-- SECTION 1: HERO -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <span class="hero-subtitle">English Speaking Partner</span>
+                    <h1>Привет! Я Дима.</h1>
+                    <p>Я не предлагаю скучные уроки с учебниками. Я предлагаю живое общение. Если вам нужно преодолеть
+                        языковой барьер, начать <em>чувствовать</em> язык и просто говорить — вы по адресу.</p>
                     
-                    <div id="voiceTranscript" class="voice-transcript">
-                        "Hi there! My name is Dima. If you want to practice your English without complex grammar or boring books, you’re in the right place. My goal is to help you improve your speaking through real, relaxed conversations—just like two friends catching up over coffee. Mistakes are totally fine; I'm here to help you find the right words on the fly. Hit the button below... and let's get started."
-                    </div>
-
-                    <audio id="myVoice" src="audio/dima-voice.mp3"></audio>
-                </div>
-            </div>
-
-            <div class="hero-img-wrapper">
-                <img src="images/dima-profile.jpg" class="profile-img" alt="Dmitriy Profile">
-            </div>
-        </div>
-    </section>
-
-    <section class="section-white">
-        <h2 class="section-title-centered format-title">Формат обучения</h2>
-
-        <div class="split-grid">
-            <img src="images/coffee.jpg" class="coffee-img" alt="Atmosphere Coffee">
-            <div>
-                <p class="format-text">
-                    <strong>Никакого стресса.</strong> Мы просто созваниваемся и общаемся на интересные вам темы. Это больше похоже на встречу друзей: в уютной атмосфере, как за чашечкой кофе, вы деленитель мыслями, рассказываете о своем дне и просто разгружаете голову. В процессе такого живого разговора я помогаю расширять словарный запас и разобраться с грамматикой на лету — так что ваш языковой барьер и неуверенность исчезают сами собой, а уровень будет расти с каждой встречей.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-warm">
-        <h2 class="whyme-title">Почему со мной?</h2>
-        <div class="card-grid">
-            <div class="info-card">
-                <div class="card-accent">7 Лет в Китае</div>
-                <p class="card-text">Опыт преподавания английского за рубежом. Я знаю, как объяснить язык тем, для кого он не является родным.</p>
-            </div>
-            <div class="info-card">
-                <div class="card-accent">Западное Образование</div>
-                <p class="card-text">Диплом Американского университета в Голландии (Hanze University). Обучение полностью на английском языке.</p>
-            </div>
-            <div class="info-card">
-                <div class="card-accent">Живой Английский</div>
-                <p class="card-text">Жил в США и работал в международной среде. Учу не книжным фразам, а реальному общению.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery-section">
-        <h2 class="gallery-title">Немного о моей жизни и путешествиях</h2>
-        <p class="gallery-text">Язык оживает только в реальном общении. Вот несколько кадров из моей жизни, учёбы и работы за рубежом.</p>
-        
-        <div class="carousel-wrapper">
-            <div class="nav-arrow arrow-left" onclick="moveCarousel(-1)">‹</div>
-            
-            <div class="carousel-container">
-                <div class="carousel-item" onclick="handleItemClick(0)">
-                    <img src="images/gallery1.jpg" alt="Teaching English China">
-                    <div class="carousel-caption">Преподавание английского языка в Китае</div>
-                </div>
-                <div class="carousel-item" onclick="handleItemClick(1)">
-                    <img src="images/gallery2.jpg" alt="USA Travel">
-                    <div class="carousel-caption">Путешествия и жизнь в Соединенных Штатах</div>
-                </div>
-                <div class="carousel-item" onclick="handleItemClick(2)">
-                    <img src="images/gallery3.jpg" alt="Europe Study Hanze">
-                    <div class="carousel-caption">Годы учебы и работы в Европе</div>
-                </div>
-                <div class="carousel-item" onclick="handleItemClick(3)">
-                    <img src="images/gallery4.jpg" alt="World Travel Moments">
-                    <div class="carousel-caption">Вдохновляющие поездки по всему миру</div>
-                </div>
-                <div class="carousel-item" onclick="handleItemClick(4)">
-                    <img src="images/gallery5.jpg" alt="With International Students">
-                    <div class="carousel-caption">Общение с людьми со всех уголков планеты</div>
-                </div>
-                <div class="carousel-item" onclick="images/gallery6.jpg">
-                    <img src="images/gallery6.jpg" alt="China Work Atmosphere">
-                    <div class="carousel-caption">Работа в Китае</div>
-                </div>
-            </div>
-
-            <div class="nav-arrow arrow-right" onclick="moveCarousel(1)">›</div>
-        </div>
-    </section>
-
-    <!-- PRICING SECTION WITH 3 CARDS & NO BUTTONS -->
-    <section class="pricing-section">
-        <div class="pricing-container">
-            <div class="pricing-header">
-                <h2 class="pricing-title">Для кого, формат и стоимость</h2>
-                <p class="format-text" style="max-width: 750px; margin: 0 auto; color: #555;">
-                    Мои занятия идеально подойдут взрослым, которым нужно разговориться, побороть страх ошибки и начать уверенно использовать язык в реальной жизни, для работы или путешествий.
-                </p>
-            </div>
-
-            <div class="pricing-cards">
-                <!-- Card 1: Free Trial -->
-                <div class="price-card">
-                    <h3 class="card-accent" style="color: var(--primary-dark); font-size: 1.5rem; margin-top: 0;">Знакомство</h3>
-                    <div class="price-amount">Бесплатно<span>созвон-превью</span></div>
-                    <ul class="price-feature-list">
-                        <li>Первые 15 минут общения</li>
-                        <li>Познакомимся вживую</li>
-                        <li>Определим текущий уровень</li>
-                        <li>Обсудим ваши цели и интересы</li>
-                    </ul>
-                </div>
-
-                <!-- Card 2: Single Practice -->
-                <div class="price-card">
-                    <h3 class="card-accent" style="color: var(--primary-dark); font-size: 1.5rem; margin-top: 0;">Разовое занятие</h3>
-                    <div class="price-amount">1500 ₽<span>за 50 минут</span></div>
-                    <ul class="price-feature-list">
-                        <li>Созвон в VK / Yandex Telemost</li>
-                        <li>Живое общение на любые темы</li>
-                        <li>Разбор грамматики на лету</li>
-                        <li>Список новых слов/выражений после урока</li>
-                    </ul>
-                </div>
-
-                <!-- Card 3: Package Options (4+ sessions) -->
-                <div class="price-card accent-card">
-                    <h3 class="card-accent" style="font-size: 1.5rem; margin-top: 0;">Пакеты занятий</h3>
-                    <div class="price-amount">
-                        5600 ₽ <span style="display:inline; color:#444;">/ за 4 занятия (1400₽/занятие)</span>
-                        <div style="font-size: 1.4rem; font-weight: bold; margin-top: 10px; color: var(--primary-dark);">
-                            1 300 ₽ <span style="display:inline; font-size:1.1rem; color:#777;">/ занятие (от 5 занятий)</span>
+                    <div class="voice-preview-container">
+                        <button id="voiceBtn" class="voice-button" onclick="toggleAudio()">
+                            <span id="voiceIcon">▶</span> Послушать мой голос
+                        </button>
+                        
+                        <div id="voiceTranscript" class="voice-transcript">
+                            "Hi there! My name is Dima. If you want to practice your English without complex grammar or boring books, you’re in the right place. My goal is to help you improve your speaking through real, relaxed conversations—just like two friends catching up over coffee. Mistakes are totally fine; I'm here to help you find the right words on the fly. Hit the button below... and let's get started."
                         </div>
+
+                        <audio id="myVoice" src="audio/dima-voice.mp3"></audio>
                     </div>
-                    <ul class="price-feature-list">
-                        <li>Регулярная языковая практика</li>
-                        <li>Фиксация вашего прогресса</li>
-                        <li>Более глубокий разбор сложных тем</li>
-                        <li>Гибкий график и бронь времени</li>
-                    </ul>
+                </div>
+
+                <div class="hero-img-wrapper">
+                    <img src="images/dima-profile.jpg" class="profile-img" alt="Дмитрий — преподаватель разговорного английского языка">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section-white" id="contact">
+        <!-- SECTION 2: FORMAT -->
+        <section class="section-white">
+            <h2 class="section-title-centered format-title">Формат обучения</h2>
+
+            <div class="split-grid">
+                <img src="images/coffee.jpg" class="coffee-img" alt="Уютная атмосфера за чашкой кофе для изучения английского языка">
+                <div>
+                    <p class="format-text">
+                        <strong>Никакого стресса.</strong> Мы просто созваниваемся и общаемся на интересные вам темы. Это больше похоже на встречу друзей: в уютной атмосфере, как за чашечкой кофе, вы делитесь мыслями, рассказываете о своем дне и просто разгружаете голову. В процессе такого живого разговора я помогаю расширять словарный запас и разобраться с грамматикой на лету — так что ваш языковой барьер и неуверенность исчезают сами собой, а уровень будет расти с каждой встречей.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: CARDS (Why Me) -->
+        <section class="section-warm">
+            <h2 class="whyme-title">Почему со мной?</h2>
+            <div class="card-grid">
+                <div class="info-card">
+                    <div class="card-accent">7 Лет в Китае</div>
+                    <p class="card-text">Опыт преподавания английского за рубежом. Я знаю, как объяснить язык тем, для кого он не является родным.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-accent">Западное Образование</div>
+                    <p class="card-text">Диплом Американского университета в Голландии (Hanze University). Обучение полностью на английском языке.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-accent">Живой Английский</div>
+                    <p class="card-text">Жил в США и работал в международной среде. Учу не книжным фразам, а реальному общению.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3.5: GALLERY INTERACTIVE CAROUSEL -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">Немного о моей жизни и путешествиях</h2>
+            <p class="gallery-text">Язык оживает только в реальном общении. Вот несколько кадров из моей жизни, учёбы и работы за рубежом.</p>
+            
+            <div class="carousel-wrapper">
+                <div class="nav-arrow arrow-left" onclick="moveCarousel(-1)">‹</div>
+                
+                <div class="carousel-container">
+                    <div class="carousel-item" onclick="handleItemClick(0)">
+                        <img src="images/gallery1.jpg" alt="Опыт преподавания разговорного английского языка в Китае">
+                        <div class="carousel-caption">Преподавание английского языка в Китае</div>
+                    </div>
+                    <div class="carousel-item" onclick="handleItemClick(1)">
+                        <img src="images/gallery2.jpg" alt="Опыт жизни и языковой практики в Соединенных Штатах Америки">
+                        <div class="carousel-caption">Путешествия и жизнь в Соединенных Штатах</div>
+                    </div>
+                    <div class="carousel-item" onclick="handleItemClick(2)">
+                        <img src="images/gallery3.jpg" alt="Учеба на английском языке в европейском университете Hanze">
+                        <div class="carousel-caption">Годы учебы и работы в Европе</div>
+                    </div>
+                    <div class="carousel-item" onclick="images/gallery4.jpg">
+                        <img src="images/gallery4.jpg" alt="Международный опыт и путешествия по миру">
+                        <div class="carousel-caption">Вдохновляющие поездки по всему миру</div>
+                    </div>
+                    <div class="carousel-item" onclick="handleItemClick(4)">
+                        <img src="images/gallery5.jpg" alt="Практика английского языка в международной студенческой среде">
+                        <div class="carousel-caption">Общение с людьми со всех уголков планеты</div>
+                    </div>
+                    <div class="carousel-item" onclick="handleItemClick(5)">
+                        <img src="images/gallery6.jpg" alt="Профессиональный путь и работа за границей">
+                        <div class="carousel-caption">Работа в Китае</div>
+                    </div>
+                </div>
+
+                <div class="nav-arrow arrow-right" onclick="moveCarousel(1)">›</div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PRICING -->
+        <section class="pricing-section">
+            <div class="pricing-container">
+                <div class="pricing-header">
+                    <h2 class="pricing-title">Для кого, формат и стоимость</h2>
+                    <p class="pricing-intro">
+                        Мои занятия идеально подойдут взрослым, которым нужно разговориться, побороть страх ошибки и начать уверенно использовать язык в реальной жизни, для работы или путешествий.
+                    </p>
+                </div>
+
+                <div class="pricing-cards">
+                    <!-- Card 1: Free Trial -->
+                    <div class="price-card">
+                        <h3 class="card-accent" style="color: var(--primary-dark)">Знакомство</h3>
+                        <div class="price-amount">Бесплатно<span>созвон-превью</span></div>
+                        <ul class="price-feature-list">
+                            <li>Первые 15 минут общения</li>
+                            <li>Познакомимся вживую</li>
+                            <li>Определим текущий уровень</li>
+                            <li>Обсудим ваши цели и интересы</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2: Single Practice -->
+                    <div class="price-card">
+                        <h3 class="card-accent" style="color: var(--primary-dark)">Разовое занятие</h3>
+                        <div class="price-amount">1500 ₽<span>за 50 минут</span></div>
+                        <ul class="price-feature-list">
+                            <li>Созвон в VK / Yandex Telemost</li>
+                            <li>Живое общение на любые темы</li>
+                            <li>Разбор грамматики на лету</li>
+                            <li>Список новых слов/выражений после урока</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3: Package Options -->
+                    <div class="price-card accent-card">
+                        <h3 class="card-accent">Пакеты занятий</h3>
+                        <div class="price-amount">
+                            5600 ₽ <span style="display:inline; color:#444;">/ за 4 занятия (1400₽/занятие)</span>
+                            <div class="price-sub-row">
+                                1 300 ₽ <span style="display:inline; color:#777;">/ занятие (от 5 занятий)</span>
+                            </div>
+                        </div>
+                        <ul class="price-feature-list">
+                            <li>Регулярная языковая практика</li>
+                            <li>Фиксация вашего прогресса</li>
+                            <li>Более глубокий разбор сложных тем</li>
+                            <li>Гибкий график и бронь времени</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- MONEY BACK GUARANTEE -->
+                <div class="guarantee-box">
+                    <span class="guarantee-icon">⚖️</span>
+                    <div class="guarantee-text">
+                        <strong>Без лишних обещаний:</strong>
+                        Если в течение первого полноценного занятия вы поймете, что мой формат вам не подходит, просто скажите мне об этом — и я верну деньги за него в полном объеме.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- SECTION 5: CONTACTS (Semantic Footer) -->
+    <footer class="section-white" id="contact">
         <div class="contact-grid">
-
             <div>
                 <h2 class="contact-title">Связаться со мной</h2>
                 <p class="contact-desc">Напишите мне в мессенджер/на почту или заполните форму справа.</p>
@@ -820,7 +958,7 @@
                 </form>
             </div>
         </div>
-    </section>
+    </footer>
 
     <div id="customLightbox" class="custom-lightbox" onclick="closeLightboxPopup()">
         <span class="custom-lightbox-close">&times;</span>
@@ -890,7 +1028,7 @@
             }
         }
 
-        /* --- CLEAN LIGHTBOX SCRIPT --- */
+        /* --- LIGHTBOX SCRIPT --- */
         const lightboxElement = document.getElementById('customLightbox');
         const lightboxImg = document.getElementById('customLightboxImg');
         const lightboxCaption = document.getElementById('customLightboxCaption');
