@@ -5,30 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ==========================================
-         STANDARD SEO META TAGS
-         ========================================== -->
     <title>Разговорный английский онлайн — Репетитор английского языка | English with Dima</title>
     <link rel="icon" type="image/png" href="favicon.png?v=1">
     
     <meta name="description" content="Уроки разговорного английского языка с Димой. Живое общение, преодоление языкового барьера, никакой скучной теории. Пробное знакомство бесплатно.">
     <meta name="keywords" content="английский язык, разговорный английский, преподаватель английского, английский онлайн, языковой барьер">
     
-    <!-- SEO Control: Set to 'index, follow' when you are completely ready to go public -->
     <meta name="robots" content="index, follow">
 
-    <!-- ==========================================
-         OPEN GRAPH META TAGS (Social Media SEO)
-         ========================================== -->
     <meta property="og:title" content="English with Dima — Разговорный английский без стресса">
     <meta property="og:description" content="Живое общение и практика английского языка. Избавьтесь от страха ошибок за чашкой кофе.">
     <meta property="og:image" content="images/dima-profile.jpg">
     <meta property="og:url" content="https://englishwithdima.ru">
     <meta property="og:type" content="website">
 
-    <!-- ==========================================
-         SCHEMA.ORG STRUCTURED DATA (Machine Readable)
-         ========================================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -52,7 +42,6 @@
     }
     </script>
     
-<!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -64,8 +53,7 @@
     ym(109477225, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/109477225" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-    <style>
+<style>
         :root {
             /* --- COLOR PALETTE --- */
             --primary-dark: #2c3e50;
@@ -90,6 +78,11 @@
             --size-whyme-title: 2.5rem;
             --size-card-title: 1.4rem;
             --size-card-text: 1.15rem;
+
+            /* 3.6. IT SECTION */
+            --size-it-title: 2.5rem;
+            --size-it-subtitle: 1.4rem;
+            --size-it-text: 1.2rem;
 
             /* 4. GALLERY SECTION */
             --size-gallery-title: 2.5rem;
@@ -359,7 +352,7 @@
         .carousel-item.next {
             opacity: 0.65;
             pointer-events: auto;
-            transform: translate3d(260px, 0, 0) scale(0.8) rotateY(-15deg);
+            transform: translate3d(260px, 0, 0) scale(0.8) rotateY(-14deg);
             z-index: 3;
         }
 
@@ -762,9 +755,7 @@
 
 <body>
 
-    <!-- Semantic Structural Wrappers for SEO Crawlers -->
     <main>
-        <!-- SECTION 1: HERO -->
         <section class="hero">
             <div class="hero-container">
                 <div class="hero-text">
@@ -779,15 +770,7 @@
                         </button>
                         
                         <div id="voiceTranscript" class="voice-transcript">
-                            "Hi there, my name is Dima. If you want to practice enlgish without complex grammar, boring books, you are in a right place.
-
-My goal is to help you to improve your speaking through real, relaxed conversations just like two friends catching up over a coffee.
-
-We can talk about your day, your interestes, you can just vent and clear your head after work. 
-
-And dont worry about making mistakes, i am here to help you to find the right words on the fly.
-
-Hit the button below and lets get started."
+                            "Hi there, my name is Dima. If you want to practice enlgish without complex grammar, boring books, you are in a right place. My goal is to help you to improve your speaking through real, relaxed conversations just like two friends catching up over a coffee. We can talk about your day, your interestes, you can just vent and clear your head after work. And dont worry about making mistakes, i am here to help you to find the right words on the fly. Hit the button below and lets get started."
                         </div>
 
                         <audio id="myVoice" src="audio/dima-voice.mp3"></audio>
@@ -800,7 +783,6 @@ Hit the button below and lets get started."
             </div>
         </section>
 
-        <!-- SECTION 2: FORMAT -->
         <section class="section-white">
             <h2 class="section-title-centered format-title">Формат занятий разговорным английским</h2>
 
@@ -814,7 +796,6 @@ Hit the button below and lets get started."
             </div>
         </section>
 
-        <!-- SECTION 3: CARDS (Why Me) -->
         <section class="section-warm">
             <h2 class="whyme-title">Почему выбирают мои уроки английского?</h2>
             <div class="card-grid">
@@ -833,7 +814,30 @@ Hit the button below and lets get started."
             </div>
         </section>
 
-        <!-- SECTION 3.5: GALLERY INTERACTIVE CAROUSEL -->
+        <section class="section-white" id="it-english" style="border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center; padding: 20px 0;">
+                <h2 style="font-size: var(--size-it-title); color: var(--primary-dark); margin-bottom: 25px;">Английский для IT: Собеседования и Работа на Зарубежный Рынок</h2>
+                <p style="font-size: var(--size-it-text); max-width: 750px; margin: 0 auto 50px; color: #555;">
+                    Понимаю, как сложно преодолеть страх общения, когда нужно обсуждать сложные технические задачи, проходить скрининги или защищать архитектурные решения перед иностранными коллегами. Мы сделаем упор на практику, которая нужна именно вам.
+                </p>
+                
+                <div class="split-grid" style="text-align: left; gap: 40px; align-items: start;">
+                    <div>
+                        <h3 style="font-size: var(--size-it-subtitle); color: var(--telegram-blue); margin-top: 0; margin-bottom: 12px;">🚀 Готовимся к интервью</h3>
+                        <p style="font-size: var(--size-it-text); line-height: 1.6; color: #444; margin: 0;">
+                            Разберем типичные вопросы на поведенческих (Behavioral) и технических собеседованиях. Научимся уверенно рассказывать о своем опыте, проектах, стеке технологий и факапах без заученных шаблонных фраз.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: var(--size-it-subtitle); color: var(--telegram-blue); margin-top: 0; margin-bottom: 12px;">💻 Работа в международной команде</h3>
+                        <p style="font-size: var(--size-it-text); line-height: 1.6; color: #444; margin: 0;">
+                            Практикуем живое общение для ежедневных созвонов (Daily Standups), обсуждения задач (Sprint Planning) и ревью. Вы будете уверенно и без лишнего стресса излагать свои мысли разработчикам, QA-инженерам и тимлидам на английском.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="gallery-section">
             <h2 class="gallery-title">Немного о моей жизни и путешествиях</h2>
             <p class="gallery-text">Язык оживает только в реальном общении. Вот несколько кадров из моей жизни, учёбы и работы за рубежом.</p>
@@ -848,7 +852,7 @@ Hit the button below and lets get started."
                     </div>
                     <div class="carousel-item" onclick="handleItemClick(1)">
                         <img src="images/gallery2.jpg" alt="Опыт жизни и языковой практики в Соединенных Штатах Америки">
-                        <div class="carousel-caption">Путешествия и жизнь в Соединенных Штатах</div>
+                        <div class="carousel-caption">Путешествия и life в Соединенных Штатах</div>
                     </div>
                     <div class="carousel-item" onclick="handleItemClick(2)">
                         <img src="images/gallery3.jpg" alt="Учеба на английском языке в европейском университете Hanze">
@@ -872,7 +876,6 @@ Hit the button below and lets get started."
             </div>
         </section>
 
-        <!-- SECTION 4: PRICING -->
         <section class="pricing-section">
             <div class="pricing-container">
                 <div class="pricing-header">
@@ -883,7 +886,6 @@ Hit the button below and lets get started."
                 </div>
 
                 <div class="pricing-cards">
-                    <!-- Card 1: Free Trial -->
                     <div class="price-card">
                         <h3 class="card-accent" style="color: var(--primary-dark)">Знакомство</h3>
                         <div class="price-amount">Бесплатно<span>созвон-превью</span></div>
@@ -895,7 +897,6 @@ Hit the button below and lets get started."
                         </ul>
                     </div>
 
-                    <!-- Card 2: Single Practice -->
                     <div class="price-card">
                         <h3 class="card-accent" style="color: var(--primary-dark)">Разовое занятие</h3>
                         <div class="price-amount">1500 ₽<span>за 50 минут</span></div>
@@ -907,7 +908,6 @@ Hit the button below and lets get started."
                         </ul>
                     </div>
 
-                    <!-- Card 3: Package Options -->
                     <div class="price-card accent-card">
                         <h3 class="card-accent">Пакеты занятий</h3>
                         <div class="price-amount">
@@ -925,7 +925,6 @@ Hit the button below and lets get started."
                     </div>
                 </div>
 
-                <!-- MONEY BACK GUARANTEE -->
                 <div class="guarantee-box">
                     <span class="guarantee-icon">⚖️</span>
                     <div class="guarantee-text">
@@ -938,7 +937,6 @@ Hit the button below and lets get started."
         </section>
     </main>
 
-    <!-- SECTION 5: CONTACTS (Semantic Footer) -->
     <footer class="section-white" id="contact">
         <div class="contact-grid">
             <div>
