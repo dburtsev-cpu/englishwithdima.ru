@@ -5,20 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- ==========================================
+         STANDARD SEO META TAGS
+         ========================================== -->
     <title>Разговорный английский онлайн — Репетитор английского языка | English with Dima</title>
     <link rel="icon" type="image/png" href="favicon.png?v=1">
     
     <meta name="description" content="Уроки разговорного английского языка с Димой. Живое общение, преодоление языкового барьера, никакой скучной теории. Пробное знакомство бесплатно.">
     <meta name="keywords" content="английский язык, разговорный английский, преподаватель английского, английский онлайн, языковой барьер">
     
+    <!-- SEO Control: Set to 'index, follow' when you are completely ready to go public -->
     <meta name="robots" content="index, follow">
 
+    <!-- ==========================================
+         OPEN GRAPH META TAGS (Social Media SEO)
+         ========================================== -->
     <meta property="og:title" content="English with Dima — Разговорный английский без стресса">
     <meta property="og:description" content="Живое общение и практика английского языка. Избавьтесь от страха ошибок за чашкой кофе.">
     <meta property="og:image" content="images/dima-profile.jpg">
     <meta property="og:url" content="https://englishwithdima.ru">
     <meta property="og:type" content="website">
 
+    <!-- ==========================================
+         SCHEMA.ORG STRUCTURED DATA (Machine Readable)
+         ========================================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,6 +52,7 @@
     }
     </script>
     
+<!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -53,7 +64,8 @@
     ym(109477225, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/109477225" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<style>
+<!-- /Yandex.Metrika counter -->
+    <style>
         :root {
             /* --- COLOR PALETTE --- */
             --primary-dark: #2c3e50;
@@ -62,7 +74,11 @@
             --white: #ffffff;
             --telegram-blue: #0088cc;
 
-            /* --- FONT CONTROL PANEL --- */
+            /* ==========================================================================
+               FONT CONTROL PANEL
+               To change the font of the entire website, swap out the value below.
+               Example for Inter font (if imported): --font-main: 'Inter', sans-serif;
+               ========================================================================== */
             --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
             /* 1. HERO SECTION */
@@ -224,16 +240,17 @@
         }
 
         .card-grid {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 40px auto 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* Adjusted minmax to allow 4 cards to sit cleaner side-by-side on desktop views */
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 25px;
         }
 
         .info-card {
             background: white;
-            padding: 40px 30px;
+            padding: 40px 25px;
             border-radius: 20px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
@@ -755,12 +772,14 @@
 
 <body>
 
+    <!-- Semantic Structural Wrappers for SEO Crawlers -->
     <main>
+        <!-- SECTION 1: HERO -->
         <section class="hero">
             <div class="hero-container">
                 <div class="hero-text">
                     <span class="hero-subtitle">English Speaking Partner</span>
-                    <h1>Привет! Я Дима - твой репетитор по разговорному английскому</h1>
+                    <h1>Привет! Я Дима - твой репетитор по  Английскому языку</h1>
                     <p>Я не предлагаю скучные уроки с учебниками. Я предлагаю живое общение. Если вам нужно преодолеть
                         языковой барьер, начать <em>чувствовать</em> язык и просто говорить — вы по адресу.</p>
                     
@@ -770,7 +789,8 @@
                         </button>
                         
                         <div id="voiceTranscript" class="voice-transcript">
-                            "Hi there, my name is Dima. If you want to practice enlgish without complex grammar, boring books, you are in a right place. My goal is to help you to improve your speaking through real, relaxed conversations just like two friends catching up over a coffee. We can talk about your day, your interestes, you can just vent and clear your head after work. And dont worry about making mistakes, i am here to help you to find the right words on the fly. Hit the button below and lets get started."
+                            "Hi there, my name is Dima, if you want to practice your English without complex grammar or boring books, you are in a right place! My goal is to help you improve your speaking through real relaxed conversations, just like two friends catching up over a coffee. 
+We can talk about your day, your interests, or you can just vent and clear your head after work. And don't worry about making mistakes, I am here to help you find the right words on a fly. Hit the button below, and let's get started. "
                         </div>
 
                         <audio id="myVoice" src="audio/dima-voice.mp3"></audio>
@@ -783,8 +803,9 @@
             </div>
         </section>
 
+        <!-- SECTION 2: FORMAT -->
         <section class="section-white">
-            <h2 class="section-title-centered format-title">Формат занятий разговорным английским</h2>
+            <h2 class="section-title-centered format-title">Формат занятий разговорным Английским</h2>
 
             <div class="split-grid">
                 <img src="images/coffee.jpg" class="coffee-img" alt="Уютная атмосфера за чашкой кофе для изучения английского языка">
@@ -796,24 +817,31 @@
             </div>
         </section>
 
+        <!-- SECTION 3: CARDS (Why Me) -->
         <section class="section-warm">
-            <h2 class="whyme-title">Почему выбирают мои уроки английского?</h2>
+            <h2 class="whyme-title">Почему выбирают мои уроки Английского?</h2>
             <div class="card-grid">
                 <div class="info-card">
                     <div class="card-accent">7 Лет в Китае</div>
-                    <p class="card-text">Опыт преподавания английского за рубежом. Я знаю, как объяснить язык тем, для кого он не является родным.</p>
+                    <p class="card-text">Опыт преподавания Английского за рубежом. Я знаю, как объяснить язык тем, для кого он не является родным.</p>
                 </div>
                 <div class="info-card">
                     <div class="card-accent">Западное Образование</div>
-                    <p class="card-text">Диплом Американского университета в Голландии (Hanze University). Обучение полностью на английском языке.</p>
+                    <p class="card-text">Диплом Американского университета в Голландии (Hanze University). Обучение полностью на Английском языке.</p>
                 </div>
                 <div class="info-card">
                     <div class="card-accent">Живой Английский</div>
                     <p class="card-text">Жил в США и работал в международной среде. Учу не книжным фразам, а реальному общению.</p>
                 </div>
+                <!-- NEW 4th CARD FOR IT & CS BACKGROUND -->
+                <div class="info-card">
+                    <div class="card-accent">Tech-Бэкграунд</div>
+                    <p class="card-text">Имею высшее техническое образование в сфере Computer Science. Отлично понимаю стек, процессы и боли IT-специалистов.</p>
+                </div>
             </div>
         </section>
 
+        <!-- SECTION 3.6: IT ENGLISH -->
         <section class="section-white" id="it-english" style="border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
             <div style="max-width: 900px; margin: 0 auto; text-align: center; padding: 20px 0;">
                 <h2 style="font-size: var(--size-it-title); color: var(--primary-dark); margin-bottom: 25px;">Английский для IT: Собеседования и Работа на Зарубежный Рынок</h2>
@@ -838,6 +866,7 @@
             </div>
         </section>
 
+        <!-- SECTION 3.5: GALLERY INTERACTIVE CAROUSEL -->
         <section class="gallery-section">
             <h2 class="gallery-title">Немного о моей жизни и путешествиях</h2>
             <p class="gallery-text">Язык оживает только в реальном общении. Вот несколько кадров из моей жизни, учёбы и работы за рубежом.</p>
@@ -876,6 +905,7 @@
             </div>
         </section>
 
+        <!-- SECTION 4: PRICING -->
         <section class="pricing-section">
             <div class="pricing-container">
                 <div class="pricing-header">
@@ -886,6 +916,7 @@
                 </div>
 
                 <div class="pricing-cards">
+                    <!-- Card 1: Free Trial -->
                     <div class="price-card">
                         <h3 class="card-accent" style="color: var(--primary-dark)">Знакомство</h3>
                         <div class="price-amount">Бесплатно<span>созвон-превью</span></div>
@@ -897,6 +928,7 @@
                         </ul>
                     </div>
 
+                    <!-- Card 2: Single Practice -->
                     <div class="price-card">
                         <h3 class="card-accent" style="color: var(--primary-dark)">Разовое занятие</h3>
                         <div class="price-amount">1500 ₽<span>за 50 минут</span></div>
@@ -908,6 +940,7 @@
                         </ul>
                     </div>
 
+                    <!-- Card 3: Package Options -->
                     <div class="price-card accent-card">
                         <h3 class="card-accent">Пакеты занятий</h3>
                         <div class="price-amount">
@@ -925,6 +958,7 @@
                     </div>
                 </div>
 
+                <!-- MONEY BACK GUARANTEE -->
                 <div class="guarantee-box">
                     <span class="guarantee-icon">⚖️</span>
                     <div class="guarantee-text">
@@ -937,11 +971,12 @@
         </section>
     </main>
 
+    <!-- SECTION 5: CONTACTS (Semantic Footer) -->
     <footer class="section-white" id="contact">
         <div class="contact-grid">
             <div>
-                <h2 class="contact-title">Записаться на уроки английского языка</h2>
-                <p class="contact-desc">Напишите мне в мессенджер/на почту или заполните форму справа.</p>
+                <h2 class="contact-title">Записаться на уроки Английского языка</h2>
+                <p class="contact-desc">Напишите мне в мессенджер/на почту или заполните форму. Спасибо!</p>
 
                 <div class="contact-list">
                     <div class="contact-item">
